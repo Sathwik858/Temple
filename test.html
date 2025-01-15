@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Pada Sri Vallabha Temple - Divine Heritage</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-brown: #8B4513;
+            --secondary-brown: #A0522D;
+            --light-brown: #DEB887;
+            --accent-gold: #DAA520;
+            --bg-cream: #FFF8DC;
+            --text-dark: #2C1810;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(to right, var(--primary-brown), var(--secondary-brown));
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .temple-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .temple-hero {
+            background: url('/api/placeholder/1200/400') center/cover;
+            height: 400px;
+            position: relative;
+            margin-bottom: 3rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .temple-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 24, 16, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .temple-hero-text {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .temple-title {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .section-heading {
+            color: var(--primary-brown);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: var(--bg-cream);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .mythological-card {
+            background: linear-gradient(to right bottom, var(--primary-brown), var(--secondary-brown));
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .mythological-card h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: "•";
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .timing-card {
+            background: var(--primary-brown);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .footer {
+            background: var(--primary-brown);
+            color: white;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .temple-content {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">Sri Pada Sri Vallabha</div>
+            <div class="nav-menu">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#history" class="nav-link">History</a>
+                <a href="#worship" class="nav-link">Worship</a>
+                <a href="#visit" class="nav-link">Visit</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="temple-content">
+        <div class="temple-hero">
+            <div class="temple-hero-overlay">
+                <div class="temple-hero-text">
+                    <h1 class="temple-title">Sri Pada Sri Vallabha Temple</h1>
+                    <p class="temple-subtitle">The Sacred Abode of Lord Dattatreya's First Incarnation</p>
+                </div>
+            </div>
+        </div>
+
+        <section id="about" class="section">
+            <h2 class="section-heading">Divine Significance</h2>
+            <div class="mythological-card">
+                <h3>First Incarnation of Lord Dattatreya</h3>
+                <p>Sri Pada Sri Vallabha is revered as the first incarnation of Lord Dattatreya, the divine trinity of Brahma, Vishnu, and Maheshwara. The temple marks the sacred birthplace of this divine incarnation, who blessed the world with his presence in the 14th century.</p>
+            </div>
+        </section>
+
+        <section id="history" class="section">
+            <h2 class="section-heading">Historical Legacy</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Divine Birth</h3>
+                    <ul class="feature-list">
+                        <li>Born to Sri Appala Raju Sharma and Sumati Mata in Pithapuram</li>
+                        <li>Exhibited miraculous powers from childhood</li>
+                        <li>Blessed countless devotees with spiritual guidance</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Sacred Text</h3>
+                    <ul class="feature-list">
+                        <li>"Sri Pada Sri Vallabha Charitamrutam" chronicles his divine life</li>
+                        <li>Contains miraculous incidents and teachings</li>
+                        <li>Revered as a spiritual guide by devotees</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-heading">Temple Architecture</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Sacred Shrine</h3>
+                    <ul class="feature-list">
+                        <li>Life-size idol of Sri Vallabha Swamy in meditation</li>
+                        <li>Sanctum radiates divine peace and serenity</li>
+                        <li>Traditional temple architecture with intricate carvings</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Temple Complex</h3>
+                    <ul class="feature-list">
+                        <li>Shrines dedicated to Lord Dattatreya and Anagha Devi</li>
+                        <li>Birth site marked as "Swayambhu Kshetra"</li>
+                        <li>Peaceful meditation spaces</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="worship" class="section">
+            <h2 class="section-heading">Spiritual Practices</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Daily Rituals</h3>
+                    <ul class="feature-list">
+                        <li>Traditional Abhishekam and Alankaram</li>
+                        <li>Regular Aarti ceremonies</li>
+                        <li>Sacred text recitation</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Special Celebrations</h3>
+                    <ul class="feature-list">
+                        <li>Sri Pada Sri Vallabha Jayanthi</li>
+                        <li>Guru Dattatreya Jayanti</li>
+                        <li>Special full moon day ceremonies</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="visit" class="section">
+            <h2 class="section-heading">Visitor Information</h2>
+            <div class="timing-card">
+                <h3>Temple Timings</h3>
+                <p>Morning: 6:00 AM – 12:30 PM</p>
+                <p>Evening: 4:00 PM – 8:30 PM</p>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>How to Reach</h3>
+                    <ul class="feature-list">
+                        <li>Nearest Airport: Rajahmundry (60 km)</li>
+                        <li>Railway Station: Pithapuram</li>
+                        <li>Regular buses from major cities</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Suggested Stay Duration</h3>
+                    <ul class="feature-list">
+                        <li>Minimum 1-2 days recommended</li>
+                        <li>Best visited during festivals</li>
+                        <li>Accommodation available nearby</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="nav-container">
+            <p>© 2024 Sri Pada Sri Vallabha Temple. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
