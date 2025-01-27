@@ -32,7 +32,7 @@
         .header {
             background: linear-gradient(to right, var(--primary-brown), var(--secondary-brown));
             color: white;
-            padding: 1rem;
+     
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
@@ -262,7 +262,7 @@
         .header {
             background: linear-gradient(to right, var(--primary-brown), var(--secondary-brown));
             color: white;
-            padding: 1rem;
+      
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
@@ -565,23 +565,141 @@
                 font-size: 1.2rem;
             }
         }
+        /* Updated Logo and Navigation Styles */
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-right: auto; /* Pushes the nav menu to the right */
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+    border-radius: 9999px;
+}
+
+.logo span {
+    color: var(--accent-gold);
+    font-size: 1.4rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-left: auto; /* Ensures the menu stays on the right */
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 968px) {
+    .nav-link {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .nav-menu {
+        gap: 1rem;
+    }
+    
+    .logo span {
+        font-size: 1.2rem;
+    }
+    
+    .logo-image {
+        height: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .hamburger {
+        display: block;
+        margin-left: 1rem;
+    }
+    
+    .logo-image {
+        height: 35px;
+    }
+    
+    .logo span {
+        font-size: 1.1rem;
+    }
+}
+
+/* Mobile Navigation Updates */
+.mobile-nav {
+    padding: 1rem;
+}
+
+.mobile-nav-links {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.mobile-nav-links a {
+    display: block;
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-links a:last-child {
+    border-bottom: none;
+}
+
+/* Ensure header stays on top */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(to right, var(--primary-brown), var(--secondary-brown));
+}
     </style>
 </head>
 <body>
     <header class="header">
         <nav class="nav-container">
-            <div class="logo">Peetikapur Vihar</div>
-<button class="hamburger" aria-label="Open menu">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div class="logo">
+                <img src="./logo_sample4.webp" alt="Peetikapur Vihar Logo" class="logo-image">
+                <span>Peetikapur Vihar</span>
+            </div>
             <div class="nav-menu">
                 <a href="./index.html" class="nav-link">Home</a>
                 <a href="./temples.html" class="nav-link">Temples</a>
                 <a href="./services.html" class="nav-link">Services</a>
                 <a href="./events.html" class="nav-link">Events</a>
                 <a href="./contact.html" class="nav-link">Contact</a>
-
             </div>
+            <button class="hamburger" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </nav>
     </header>
 <div class="mobile-nav">
