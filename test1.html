@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kukkuteswara Swamy Temple - Divine Heritage</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-brown: #8B4513;
+            --secondary-brown: #A0522D;
+            --light-brown: #DEB887;
+            --accent-gold: #DAA520;
+            --bg-cream: #FFF8DC;
+            --text-dark: #2C1810;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header styles remain the same */
+        .header {
+            background: linear-gradient(to right, var(--primary-brown), var(--secondary-brown));
+            color: white;
+           
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .temple-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .temple-hero {
+            background: url('/api/placeholder/1200/400') center/cover;
+            height: 400px;
+            position: relative;
+            margin-bottom: 3rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .temple-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 24, 16, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .temple-hero-text {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .temple-title {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .temple-subtitle {
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .section-heading {
+            color: var(--primary-brown);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: var(--bg-cream);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .info-card h3 {
+            color: var(--primary-brown);
+            margin-bottom: 1rem;
+        }
+
+      .section-content {
+            margin-bottom: 2rem;
+        }
+        
+        .section-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .feature-list li:before {
+            content: "•";
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .mythological-card {
+            background: linear-gradient(to right bottom, var(--primary-brown), var(--secondary-brown));
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .mythological-card h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .architecture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .ritual-card {
+            background: var(--bg-cream);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--primary-brown);
+        }
+
+        .timing-card {
+            background: var(--primary-brown);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .timing-card h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .timing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .timing-item {
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+
+        .footer {
+            background: var(--primary-brown);
+            color: white;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .list-styled {
+            list-style-position: inside;
+            margin: 1rem 0;
+            padding-left: 1rem;
+        }
+
+        .list-styled li {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .temple-title {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+            
+            .temple-content {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+    <style>
+        :root {
+            --primary-brown: #8B4513;
+            --secondary-brown: #A0522D;
+            --light-brown: #DEB887;
+            --accent-gold: #DAA520;
+            --bg-cream: #FFF8DC;
+            --text-dark: #2C1810;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+        }
+
+        .header {
+            background: linear-gradient(to right, var(--primary-brown), var(--secondary-brown));
+            color: white;
+            
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .hero-section {
+            background: url('/api/placeholder/1920/600') center/cover;
+            height: 500px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 24, 16, 0.7);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-brown);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-brown);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent-gold);
+        }
+
+        .featured-temples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .temple-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .temple-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .temple-info {
+            padding: 1.5rem;
+        }
+
+        .temple-name {
+            font-size: 1.25rem;
+            color: var(--primary-brown);
+            margin-bottom: 0.5rem;
+        }
+
+        .temple-location {
+            color: var(--secondary-brown);
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            background-color: var(--primary-brown);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary-brown);
+        }
+
+        .footer {
+            background: var(--primary-brown);
+            color: white;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Adjust height as needed */
+    background-image: url('./img/logo.jpg'); /* Path to your image */
+    background-size: 80% 100%; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+       .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        /* Add these new styles for hamburger menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        .hamburger i {
+            font-size: 1.5rem;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-brown);
+            z-index: 1000;
+            padding: 2rem;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .mobile-nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+        /* Updated Logo and Navigation Styles */
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-right: auto; /* Pushes the nav menu to the right */
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+    border-radius: 9999px;
+}
+
+.logo span {
+    color: var(--accent-gold);
+    font-size: 1.4rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-left: auto; /* Ensures the menu stays on the right */
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 968px) {
+    .nav-link {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .nav-menu {
+        gap: 1rem;
+    }
+    
+    .logo span {
+        font-size: 1.2rem;
+    }
+    
+    .logo-image {
+        height: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .hamburger {
+        display: block;
+        margin-left: 1rem;
+    }
+    
+    .logo-image {
+        height: 35px;
+    }
+    
+    .logo span {
+        font-size: 1.1rem;
+    }
+}
+
+/* Mobile Navigation Updates */
+.mobile-nav {
+    padding: 1rem;
+}
+
+.mobile-nav-links {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.mobile-nav-links a {
+    display: block;
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-links a:last-child {
+    border-bottom: none;
+}
+
+/* Ensure header stays on top */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(to right, var(--primary-brown), var(--secondary-brown));
+}
+    </style>
+      <style>
+        :root {
+            --primary-brown: #8B4513;
+            --secondary-brown: #A0522D;
+            --light-brown: #DEB887;
+            --accent-gold: #DAA520;
+            --bg-cream: #FFF8DC;
+            --text-dark: #2C1810;
+            --festival-highlight: #FFE4B5;
+            --amavasya-color: #E6E6FA;
+            --pournami-color: #FFD700;
+            --ekadasi-color: #98FB98;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+        }
+
+      
+
+     
+
+        .book-cover {
+            background: linear-gradient(145deg, var(--primary-brown), var(--secondary-brown));
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            backface-visibility: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .book-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            transform: rotateY(180deg);
+            backface-visibility: hidden;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            overflow-y: auto;
+        }
+
+        .month-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .month-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .month-header {
+            color: var(--primary-brown);
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 0.5rem;
+            border-bottom: 2px solid var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 2px;
+            margin-top: 0.5rem;
+        }
+
+        .calendar-day {
+            text-align: center;
+            padding: 0.25rem;
+            font-size: 0.9rem;
+            border: 1px solid #eee;
+            position: relative;
+            min-height: 2.5rem;
+        }
+
+        .day-header {
+            font-weight: bold;
+            background: var(--light-brown);
+            color: var(--text-dark);
+        }
+
+        .festival {
+            background: var(--festival-highlight);
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .amavasya {
+            background: var(--amavasya-color);
+        }
+
+        .pournami {
+            background: var(--pournami-color);
+        }
+
+        .ekadasi {
+            background: var(--ekadasi-color);
+        }
+
+        .festival-tooltip {
+            position: absolute;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 100;
+            width: 200px;
+            display: none;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 100%;
+        }
+
+        .calendar-day:hover .festival-tooltip {
+            display: block;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .nav-button {
+            background: var(--primary-brown);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav-button:hover {
+            background: var(--secondary-brown);
+        }
+
+        .day-marker {
+            font-size: 0.7rem;
+            margin-top: 2px;
+            color: #666;
+        }
+
+        @media (max-width: 1024px) {
+            .month-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .month-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .calendar-container {
+                padding: 1rem;
+            }
+        }
+        :root {
+            --primary-brown: #8B4513;
+            --secondary-brown: #A0522D;
+            --light-brown: #DEB887;
+            --accent-gold: #DAA520;
+            --bg-cream: #FFF8DC;
+            --text-dark: #2C1810;
+            --calendar-border: #DEB887;
+            --event-highlight: rgba(218, 165, 32, 0.2);
+        }
+
+        .events-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--accent-gold);
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-date {
+            color: var(--primary-brown);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-title {
+            color: var(--secondary-brown);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .telugu-date {
+            color: var(--accent-gold);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Calendar Styles */
+        .calendar-container {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+            perspective: 1000px;
+        }
+
+        .calendar-book {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1.5s ease;
+        }
+
+        .calendar-book.open {
+            transform: rotateY(-180deg);
+        }
+
+        .calendar-cover {
+            background: linear-gradient(135deg, var(--primary-brown), var(--secondary-brown));
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            backface-visibility: hidden;
+        }
+
+        .calendar-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            transform: rotateY(180deg);
+            backface-visibility: hidden;
+            padding: 2rem;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .calendar-day {
+            text-align: center;
+            padding: 0.5rem;
+            border: 1px solid var(--calendar-border);
+            border-radius: 4px;
+        }
+
+        .calendar-day.event {
+            background: var(--event-highlight);
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .calendar-btn {
+            background: none;
+            border: none;
+            color: var(--primary-brown);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .calendar-btn:hover {
+            background: var(--bg-cream);
+        }
+
+        .festival-list {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: var(--bg-cream);
+            border-radius: 8px;
+        }
+
+        .festival-item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--light-brown);
+        }
+
+        .festival-item:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width: 768px) {
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .calendar-container {
+                padding: 1rem;
+            }
+        }
+    </style>
+      <style>
+ 
+        .calendar-container {
+            width: 50%; /* Set base width to 50% */
+            min-width: 300px; /* Minimum width to maintain readability */
+            max-width: 600px; /* Maximum width for larger screens */
+            height: auto;
+            aspect-ratio: 4/5;
+            perspective: 2000px;
+            margin: auto;
+        }
+
+        .calendar-book {
+            width: 100%;
+            height: 110%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .calendar-book.open {
+            transform: rotateY(-180deg);
+        }
+
+        .book-cover, .book-content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .book-cover {
+            background: linear-gradient(145deg, var(--primary-brown), var(--secondary-brown));
+            color: white;
+            padding: 2rem;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .book-content {
+            background: white;
+            transform: rotateY(180deg);
+            padding: 1.5rem;
+            gap: 1rem;
+        }
+
+        .month-card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .month-header {
+            color: var(--primary-brown);
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 0.5rem;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 2px;
+            flex: 1;
+            width: 100%;
+            aspect-ratio: 7/6;
+            margin: auto;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            text-align: center;
+            padding: 0.25rem;
+            font-size: 0.9rem;
+            border: 1px solid #eee;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+        }
+
+        .day-header {
+            font-weight: bold;
+            background: var(--light-brown);
+            color: var(--text-dark);
+        }
+
+        .festival { background: var(--festival-highlight); }
+        .amavasya { background: var(--amavasya-color); }
+        .pournami { background: var(--pournami-color); }
+        .ekadasi { background: var(--ekadasi-color); }
+
+        .festival-tooltip {
+            position: absolute;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            z-index: 100;
+            width: 150px;
+            display: none;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 100%;
+            font-size: 0.8rem;
+        }
+
+        .calendar-day:hover .festival-tooltip {
+            display: block;
+        }
+
+        .day-marker {
+            font-size: 0.6rem;
+            margin-top: 2px;
+            color: #666;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+
+        .nav-button {
+            background: var(--primary-brown);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .nav-button:hover {
+            background: var(--secondary-brown);
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .calendar-container {
+                width: 80%; /* Slightly wider on tablets */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calendar-container {
+                width: 95%; /* Almost full width on mobile */
+                min-width: unset;
+            }
+
+            .book-content {
+                padding: 1rem;
+            }
+
+            .calendar-day {
+                font-size: 0.8rem;
+                padding: 0.15rem;
+            }
+
+            .day-marker {
+                font-size: 0.5rem;
+            }
+
+            .nav-button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .legend {
+                font-size: 0.7rem;
+            }
+        }
+
+        /* Landscape Mode */
+        @media (orientation: landscape) and (max-height: 600px) {
+            .calendar-container {
+                height: 90vh;
+                width: auto;
+                aspect-ratio: 4/3;
+            }
+        }
+
+        /* Large Screens */
+        @media (min-width: 1200px) {
+            .calendar-container {
+                max-width: 600px; /* Cap the maximum width */
+            }
+
+            .calendar-day {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <img src="./logo_sample4.webp" alt="Peetikapur Vihar Logo" class="logo-image">
+                <span>Peetikapur Vihar</span>
+            </div>
+            <div class="nav-menu">
+                <a href="./index.html" class="nav-link">Home</a>
+                <a href="./temples.html" class="nav-link">Temples</a>
+                <a href="./services.html" class="nav-link">Services</a>
+                <a href="./events.html" class="nav-link">Events</a>
+                <a href="./contact.html" class="nav-link">Contact</a>
+            </div>
+            <button class="hamburger" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+<div class="mobile-nav">
+        <button class="close-menu" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="mobile-nav-links">
+            <a href="./index.html" class="nav-link">Home</a>
+                <a href="./temples.html" class="nav-link">Temples</a>
+                <a href="./services.html" class="nav-link">Services</a>
+                <a href="./events.html" class="nav-link">Events</a>
+                <a href="./contact.html" class="nav-link">Contact</a>
+
+        </div>
+    </div>
+    <main class="events-container">
+        <section class="section">
+            <h2 class="section-heading">Latest Events</h2>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-date">January 26, 2025</div>
+                    <div class="telugu-date">Pushyam Pournami</div>
+                    <h3 class="event-title">Ratha Saptami</h3>
+                    <p>Special abhishekam and celebrations at Kukkuteswara Swamy Temple marking the worship of Surya Bhagavan.</p>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">January 28, 2025</div>
+                    <div class="telugu-date">Pushyam Krishna Paksha</div>
+                    <h3 class="event-title">Masa Sivaratri</h3>
+                    <p>Night-long prayers and special abhishekam at Kukkuteswara Swamy Temple with Rudra parayanam.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-heading">Upcoming Events</h2>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-date">February 2, 2025</div>
+                    <div class="telugu-date">Magham Shukla Paksha</div>
+                    <h3 class="event-title">Sri Pada Sri Vallabha Jayanti</h3>
+                    <p>Grand celebrations with special pujas, homam, and annadanam at Sri Pada Sri Vallabha Temple.</p>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">February 10, 2025</div>
+                    <div class="telugu-date">Magham Pournami</div>
+                    <h3 class="event-title">Bhishma Ekadasi</h3>
+                    <p>Special prayers and Satyanarayana Swamy vratham at Kunti Madhava Swamy Temple.</p>
+                </div>
+            </div>
+        </section>
+   
+   <div class="calendar-container">
+        <div class="calendar-book" id="calendarBook">
+            <div class="book-cover">
+                <h1 style="font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: clamp(1rem, 3vw, 2rem);">
+                    <i class="fas fa-calendar-alt"></i> Telugu Calendar
+                </h1>
+                <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: clamp(1.5rem, 4vw, 3rem);">2025</h2>
+                <p style="font-size: clamp(1rem, 2vw, 1.5rem); color: var(--accent-gold);">
+                    Click to View Calendar
+                </p>
+                <div style="margin-top: clamp(1.5rem, 4vw, 3rem); font-size: clamp(0.9rem, 2vw, 1.2rem);">
+                    <p>Peetikapur Vihar</p>
+                    <p>Traditional Telugu Panchangam</p>
+                </div>
+            </div>
+
+            <div class="book-content">
+                <div class="navigation">
+                    <button class="nav-button" id="prevMonth">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <h2 id="currentMonth"></h2>
+                    <button class="nav-button" id="nextMonth">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <div class="month-card">
+                    <div id="calendarGrid" class="calendar-grid">
+                        <!-- Calendar will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: var(--festival-highlight);"></div>
+                        <span>Festivals</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: var(--amavasya-color);"></div>
+                        <span>Amavasya</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: var(--pournami-color);"></div>
+                        <span>Pournami</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: var(--ekadasi-color);"></div>
+                        <span>Ekadasi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    </main> 
+      <footer class="footer">
+        <div class="nav-container">
+            <p>© 2024 Kukkuteswara Swamy Temple. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+<script>
+ const hamburger = document.querySelector('.hamburger');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const closeMenu = document.querySelector('.close-menu');
+
+        hamburger.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        });
+
+        // Close menu when clicking a link
+        const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+</script>
+
+<script>
+    // JavaScript code remains the same
+    const teluguMonths = {
+       1: { name: "Pushyam", days: 31, startDay: 1 },
+       2: { name: "Magham", days: 28, startDay: 4 },
+       3: { name: "Phalgunam", days: 31, startDay: 4 },
+       4: { name: "Chaithram", days: 30, startDay: 0 },
+       5: { name: "Vaisakham", days: 31, startDay: 2 },
+       6: { name: "Jyeshtam", days: 30, startDay: 5 },
+       7: { name: "Aashadam", days: 31, startDay: 0 },
+       8: { name: "Sravanam", days: 31, startDay: 3 },
+       9: { name: "Bhadrapadam", days: 30, startDay: 6 },
+       10: { name: "Aswayujam", days: 31, startDay: 1 },
+       11: { name: "Karthikam", days: 30, startDay: 4 },
+       12: { name: "Margasiram", days: 31, startDay: 6 }
+   };
+
+   const festivals2025 = {
+       "1-14": { name: "Bhogi", description: "First day of Sankranti" },
+       "1-15": { name: "Makara Sankranti", description: "Main festival day" },
+       "1-26": { name: "Ratha Saptami", description: "Worship of Surya Bhagavan" },
+       "2-2": { name: "Sri Pada Sri Vallabha Jayanti", description: "Special celebrations" },
+       "3-15": { name: "Holi", description: "Festival of colors" },
+       "4-11": { name: "Ugadi", description: "Telugu New Year" },
+       "4-21": { name: "Sri Rama Navami", description: "Birth of Lord Rama" },
+       "8-19": { name: "Sri Krishna Janmashtami", description: "Birth of Lord Krishna" },
+       "9-2": { name: "Vinayaka Chavithi", description: "Ganesh Chaturthi" },
+       "10-12": { name: "Vijaya Dasami", description: "Dussehra final day" },
+       "11-12": { name: "Deepavali", description: "Festival of lights" }
+   };
+
+   const amavasya2025 = [
+       "1-21", "2-20", "3-21", "4-20", "5-19", "6-17",
+       "7-17", "8-15", "9-14", "10-13", "11-12", "12-11"
+   ];
+
+   const pournami2025 = [
+       "1-7", "2-5", "3-7", "4-5", "5-5", "6-3",
+       "7-3", "8-1", "8-31", "9-29", "10-29", "11-27", "12-27"
+   ];
+
+   const ekadasi2025 = [
+       "1-3", "1-17", "2-1", "2-16", "3-3", "3-17",
+       "4-1", "4-16", "5-1", "5-15", "5-31", "6-14",
+       "7-1", "7-15", "7-30", "8-14", "8-29", "9-12",
+       "9-28", "10-12", "10-27", "11-10", "11-26", "12-10", "12-25"
+   ];
+
+   let currentMonth = 1;
+
+   document.addEventListener('DOMContentLoaded', () => {
+       renderCalendar();
+       setupEventListeners();
+   });
+
+   function setupEventListeners() {
+       // Navigation buttons
+       document.getElementById('prevMonth').addEventListener('click', (e) => {
+           e.stopPropagation(); // Prevent calendar flip
+           if (currentMonth > 1) {
+               currentMonth--;
+               renderCalendar();
+               updateNavigationButtons();
+           }
+       });
+
+       document.getElementById('nextMonth').addEventListener('click', (e) => {
+           e.stopPropagation(); // Prevent calendar flip
+           if (currentMonth < 12) {
+               currentMonth++;
+               renderCalendar();
+               updateNavigationButtons();
+           }
+       });
+
+       // Calendar flip
+       document.querySelector('.calendar-container').addEventListener('click', function(e) {
+           if (!e.target.closest('.nav-button') && !e.target.closest('.festival-tooltip')) {
+               document.getElementById('calendarBook').classList.toggle('open');
+           }
+       });
+
+       // Keyboard navigation
+       document.addEventListener('keydown', (e) => {
+           if (e.key === 'ArrowLeft' && currentMonth > 1) {
+               currentMonth--;
+               renderCalendar();
+               updateNavigationButtons();
+           } else if (e.key === 'ArrowRight' && currentMonth < 12) {
+               currentMonth++;
+               renderCalendar();
+               updateNavigationButtons();
+           }
+       });
+   }
+
+   function updateNavigationButtons() {
+       document.getElementById('prevMonth').disabled = currentMonth === 1;
+       document.getElementById('nextMonth').disabled = currentMonth === 12;
+   }
+
+   function renderCalendar() {
+       const monthData = teluguMonths[currentMonth];
+       document.getElementById('currentMonth').textContent = 
+           `${monthData.name} (${getEnglishMonth(currentMonth)} 2025)`;
+
+       const calendarGrid = document.getElementById('calendarGrid');
+       calendarGrid.innerHTML = '';
+
+       // Add day headers
+       const days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+       days.forEach(day => {
+           calendarGrid.innerHTML += `
+               <div class="calendar-day day-header">${day}</div>
+           `;
+       });
+
+       // Add empty cells for days before start of month
+       for (let i = 0; i < monthData.startDay; i++) {
+           calendarGrid.innerHTML += `<div class="calendar-day"></div>`;
+       }
+
+       // Add days of the month
+       for (let day = 1; day <= monthData.days; day++) {
+           const dateKey = `${currentMonth}-${day}`;
+           const classes = ['calendar-day'];
+           const markers = [];
+
+           // Check for special days
+           if (festivals2025[dateKey]) classes.push('festival');
+           if (amavasya2025.includes(dateKey)) {
+               classes.push('amavasya');
+               markers.push('Amavasya');
+           }
+           if (pournami2025.includes(dateKey)) {
+               classes.push('pournami');
+               markers.push('Pournami');
+           }
+           if (ekadasi2025.includes(dateKey)) {
+               classes.push('ekadasi');
+               markers.push('Ekadasi');
+           }
+
+           const festival = festivals2025[dateKey];
+           const markerHtml = markers.length > 0 ? 
+               `<div class="day-marker">${markers[0]}</div>` : '';
+           
+           calendarGrid.innerHTML += `
+               <div class="${classes.join(' ')}">
+                   <span>${day}</span>
+                   ${markerHtml}
+                   ${festival ? `
+                       <div class="festival-tooltip">
+                           <strong>${festival.name}</strong><br>
+                           ${festival.description}
+                       </div>
+                   ` : ''}
+               </div>
+           `;
+       }
+
+       // Fill remaining grid cells
+       const totalCells = 42; // 6 rows × 7 days
+       const filledCells = monthData.startDay + monthData.days;
+       for (let i = filledCells; i < totalCells; i++) {
+           calendarGrid.innerHTML += `<div class="calendar-day"></div>`;
+       }
+
+       updateNavigationButtons();
+   }
+
+   function getEnglishMonth(teluguMonthNum) {
+       const months = [
+           'January', 'February', 'March', 'April',
+           'May', 'June', 'July', 'August',
+           'September', 'October', 'November', 'December'
+       ];
+       return months[teluguMonthNum - 1];
+   }
+
+   // Add swipe support for mobile devices
+   let touchStartX = 0;
+   let touchEndX = 0;
+
+   document.addEventListener('touchstart', e => {
+       touchStartX = e.changedTouches[0].screenX;
+   }, false);
+
+   document.addEventListener('touchend', e => {
+       touchEndX = e.changedTouches[0].screenX;
+       handleSwipe();
+   }, false);
+
+   function handleSwipe() {
+       const swipeThreshold = 50;
+       const diff = touchEndX - touchStartX;
+
+       if (Math.abs(diff) > swipeThreshold) {
+           if (diff > 0 && currentMonth > 1) {
+               // Swipe right - previous month
+               currentMonth--;
+               renderCalendar();
+           } else if (diff < 0 && currentMonth < 12) {
+               // Swipe left - next month
+               currentMonth++;
+               renderCalendar();
+           }
+       }
+   }
+</script>
+</body>
+</html>

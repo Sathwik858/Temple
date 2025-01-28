@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divine Connect - Temple Management Platform</title>
+    <title>Telugu Calendar 2025 - Compact View</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
@@ -14,1286 +13,521 @@
             --accent-gold: #DAA520;
             --bg-cream: #FFF8DC;
             --text-dark: #2C1810;
+            --festival-highlight: #FFE4B5;
+            --amavasya-color: #E6E6FA;
+            --pournami-color: #FFD700;
+            --ekadasi-color: #98FB98;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-cream);
             color: var(--text-dark);
-        }
-
-        .header {
-            background: linear-gradient(to right, var(--primary-brown), var(--secondary-brown));
-            color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--accent-gold);
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-
-        .nav-link:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .hero-section {
-            background: url('/api/placeholder/1920/600') center/cover;
-            height: 500px;
-            position: relative;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            color: white;
+            padding: 1rem;
         }
 
-        .hero-overlay {
+        .calendar-container {
+            width: 50%; /* Set base width to 50% */
+            min-width: 300px; /* Minimum width to maintain readability */
+            max-width: 600px; /* Maximum width for larger screens */
+            height: auto;
+            aspect-ratio: 4/5;
+            perspective: 2000px;
+            margin: auto;
+        }
+
+        .calendar-book {
+            width: 100%;
+            height: 110%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .calendar-book.open {
+            transform: rotateY(-180deg);
+        }
+
+        .book-cover, .book-content {
             position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(44, 24, 16, 0.7);
+            backface-visibility: hidden;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
+        .book-cover {
+            background: linear-gradient(145deg, var(--primary-brown), var(--secondary-brown));
+            color: white;
             padding: 2rem;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
 
-        .hero-title {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--accent-gold);
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .main-content {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .service-card {
+        .book-content {
             background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            transform: rotateY(180deg);
+            padding: 1.5rem;
+            gap: 1rem;
         }
 
-        .service-card:hover {
-            transform: translateY(-5px);
+        .month-card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
         }
 
-        .service-icon {
-            font-size: 2.5rem;
+        .month-header {
             color: var(--primary-brown);
-            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 0.5rem;
+            border-bottom: 2px solid var(--accent-gold);
         }
 
-        .section-title {
-            font-size: 2rem;
-            color: var(--primary-brown);
-            margin-bottom: 2rem;
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 2px;
+            flex: 1;
+            width: 100%;
+            aspect-ratio: 7/6;
+            margin: auto;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
             text-align: center;
+            padding: 0.25rem;
+            font-size: 0.9rem;
+            border: 1px solid #eee;
             position: relative;
-            padding-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
         }
 
-        .section-title::after {
-            content: '';
+        .day-header {
+            font-weight: bold;
+            background: var(--light-brown);
+            color: var(--text-dark);
+        }
+
+        .festival { background: var(--festival-highlight); }
+        .amavasya { background: var(--amavasya-color); }
+        .pournami { background: var(--pournami-color); }
+        .ekadasi { background: var(--ekadasi-color); }
+
+        .festival-tooltip {
             position: absolute;
-            bottom: 0;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            z-index: 100;
+            width: 150px;
+            display: none;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background-color: var(--accent-gold);
+            top: 100%;
+            font-size: 0.8rem;
         }
 
-        .featured-temples {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .temple-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .temple-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .temple-info {
-            padding: 1.5rem;
-        }
-
-        .temple-name {
-            font-size: 1.25rem;
-            color: var(--primary-brown);
-            margin-bottom: 0.5rem;
-        }
-
-        .temple-location {
-            color: var(--secondary-brown);
-            margin-bottom: 1rem;
-        }
-
-        .cta-button {
-            background-color: var(--primary-brown);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .cta-button:hover {
-            background-color: var(--secondary-brown);
-        }
-
-        .footer {
-            background: var(--primary-brown);
-            color: white;
-            padding: 3rem 1rem;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .footer-section h3 {
-            color: var(--accent-gold);
-            margin-bottom: 1rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-gold);
-        }
-
-        .hero-section {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            /* Adjust height as needed */
-            background-image: url('https://github.com/Sathwik858/Temple/blob/main/logo.jpg?raw=true');
-            /* Path to your image */
-            background-size: 80% 100%;
-            /* Ensures the image covers the entire section */
-            background-position: center;
-            /* Centers the image */
-            background-repeat: no-repeat;
-            /* Prevents the image from repeating */
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2rem;
-        }
-
-        /* Add these new styles for hamburger menu */
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            background: none;
-            border: none;
-            color: white;
-        }
-
-        .hamburger i {
-            font-size: 1.5rem;
-        }
-
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--primary-brown);
-            z-index: 1000;
-            padding: 2rem;
-        }
-
-        .mobile-nav.active {
+        .calendar-day:hover .festival-tooltip {
             display: block;
         }
 
-        .close-menu {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
+        .day-marker {
+            font-size: 0.6rem;
+            margin-top: 2px;
+            color: #666;
         }
 
-        .mobile-nav-links {
+        .navigation {
             display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .mobile-nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
+            justify-content: space-between;
+            align-items: center;
             padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .hamburger {
-                display: block;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-        }
-
-/* Base responsive settings */
-:root {
-    --primary-brown: #8B4513;
-    --secondary-brown: #A0522D;
-    --light-brown: #DEB887;
-    --accent-gold: #DAA520;
-    --bg-cream: #FFF8DC;
-    --text-dark: #2C1810;
-    --container-padding: 1rem;
-}
-
-/* Responsive container */
-.nav-container, .main-content, .footer-content {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--container-padding);
-}
-
-/* Responsive header */
-.header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-/* Improved mobile navigation */
-@media (max-width: 768px) {
-    .nav-container {
-        padding: 0.5rem var(--container-padding);
-    }
-    
-    .logo {
-        font-size: 1.4rem;
-    }
-    
-    .mobile-nav {
-        padding-top: 4rem;
-    }
-    
-    .mobile-nav-links {
-        margin-top: 2rem;
-    }
-    
-    .mobile-nav-links a {
-        padding: 1rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        font-size: 1.1rem;
-    }
-}
-
-/* Responsive hero section */
-.hero-section {
-    height: auto;
-    min-height: 60vh;
-    padding: 4rem 1rem;
-}
-
-@media (max-width: 768px) {
-    .hero-section {
-        min-height: 50vh;
-        padding: 3rem 1rem;
-    }
-    
-    .hero-title {
-        font-size: 2rem;
-        line-height: 1.2;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.1rem;
-        line-height: 1.4;
-    }
-}
-
-/* Responsive services grid */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    padding: 0 var(--container-padding);
-}
-
-@media (max-width: 576px) {
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .service-card {
-        padding: 1.5rem;
-    }
-}
-
-/* Responsive events carousel */
-.events-carousel-container {
-    padding: 1rem 0;
-}
-
-.temple-card {
-    min-width: calc(100vw - 2rem);
-    margin-right: 1rem;
-}
-
-@media (min-width: 576px) {
-    .temple-card {
-        min-width: calc(50vw - 2rem);
-    }
-}
-
-@media (min-width: 992px) {
-    .temple-card {
-        min-width: 300px;
-    }
-}
-
-/* Responsive images */
-.temple-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    aspect-ratio: 16/9;
-}
-
-/* Improved footer responsiveness */
-.footer-content {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    padding: 2rem var(--container-padding);
-}
-
-@media (max-width: 576px) {
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    
-    .footer-section {
-        margin-bottom: 1.5rem;
-    }
-}
-
-/* Navigation buttons responsiveness */
-.nav-btn {
-    display: none;
-}
-
-@media (min-width: 768px) {
-    .nav-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-}
-
-/* Touch-friendly improvements */
-@media (hover: none) {
-    .service-card:hover {
-        transform: none;
-    }
-    
-    .nav-link, .cta-button {
-        padding: 0.8rem 1.2rem;
-    }
-}
-
-
-
-.events-carousel-container {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    padding: 20px 0;
-}
-
-.events-carousel {
-    display: flex;
-    gap: 2rem;
-    animation: scroll 40s linear infinite;
-    width: max-content;
-}
-
-.temple-card {
-    min-width: 300px; /* Fixed width for each card */
-    margin-right: 20px;
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-300px * 5 - 20px * 5)); /* Adjust based on card width and margin */
-    }
-}
-
-/* Pause animation on hover */
-.events-carousel:hover {
-    animation-play-state: paused;
-}
-
-/* Add gradient overlay for smooth edges */
-.events-carousel-container::before,
-.events-carousel-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 100px;
-    height: 100%;
-    z-index: 2;
-}
-
-.events-carousel-container::before {
-    left: 0;
-    background: linear-gradient(to right, var(--bg-cream) 0%, transparent 100%);
-}
-
-.events-carousel-container::after {
-    right: 0;
-    background: linear-gradient(to left, var(--bg-cream) 0%, transparent 100%);
-}
-
-.events-carousel-container {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    padding: 20px 0;
-    cursor: grab;
-}
-
-.events-carousel-container:active {
-    cursor: grabbing;
-}
-
-.events-carousel {
-    display: flex;
-    gap: 2rem;
-    animation: scroll 40s linear infinite;
-    width: max-content;
-    will-change: transform;
-    user-select: none;
-}
-
-.events-carousel.dragging {
-    animation-play-state: paused;
-}
-
-/* Navigation buttons */
-.nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--primary-brown);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    z-index: 3;
-    opacity: 0.7;
-    transition: opacity 0.3s;
-}
-
-.nav-btn:hover {
-    opacity: 1;
-}
-
-.prev-btn {
-    left: 20px;
-}
-
-.next-btn {
-    right: 20px;
-}
-/* Logo container styling */
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: var(--accent-gold);
-}
-
-.logo-image {
-    height: 70px;
-    width: auto;
-    /* Preserve aspect ratio */
-    object-fit: contain;
-border-radius:9999px;
-}
-
-/* Responsive adjustments for logo */
-@media (max-width: 768px) {
-    .logo {
-        font-size: 1.4rem;
-        gap: 0.5rem;
-    }
-
-    .logo-image {
-        height: 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo {
-        font-size: 1.2rem;
-    }
-
-    .logo-image {
-        height: 25px;
-    }
-}
-/* Updated Logo and Navigation Styles */
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0.5rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-right: auto; /* Pushes the nav menu to the right */
-}
-
-.logo-image {
-    height: 50px;
-    width: auto;
-    border-radius: 9999px;
-}
-
-.logo span {
-    color: var(--accent-gold);
-    font-size: 1.4rem;
-    font-weight: bold;
-    white-space: nowrap;
-}
-
-.nav-menu {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    margin-left: auto; /* Ensures the menu stays on the right */
-}
-
-.nav-link {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-    white-space: nowrap;
-}
-
-/* Responsive adjustments */
-@media (max-width: 968px) {
-    .nav-link {
-        padding: 0.5rem;
-        font-size: 0.9rem;
-    }
-    
-    .nav-menu {
-        gap: 1rem;
-    }
-    
-    .logo span {
-        font-size: 1.2rem;
-    }
-    
-    .logo-image {
-        height: 40px;
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-menu {
-        display: none;
-    }
-    
-    .hamburger {
-        display: block;
-        margin-left: 1rem;
-    }
-    
-    .logo-image {
-        height: 35px;
-    }
-    
-    .logo span {
-        font-size: 1.1rem;
-    }
-}
-
-/* Mobile Navigation Updates */
-.mobile-nav {
-    padding: 1rem;
-}
-
-.mobile-nav-links {
-    margin-top: 4rem;
-    text-align: center;
-}
-
-.mobile-nav-links a {
-    display: block;
-    padding: 1rem;
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.mobile-nav-links a:last-child {
-    border-bottom: none;
-}
-
-/* Ensure header stays on top */
-.header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: linear-gradient(to right, var(--primary-brown), var(--secondary-brown));
-}
-:root {
-            --primary-brown: #8B4513;
-            --accent-gold: #DAA520;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            height: 70vh;
-            max-height: 600px;
-            overflow: hidden;
-        }
-
-        .carousel-slides {
-            display: flex;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel-slide {
-            width: 100%;
-            height: 100%;
-            flex-shrink: 0;
-            position: relative;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit:contain;
-            object-position: center;
-        }
-
-        .carousel-nav-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(139, 69, 19, 0.7);
+        .nav-button {
+            background: var(--primary-brown);
             color: white;
             border: none;
-            padding: 10px;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
             cursor: pointer;
-            z-index: 10;
-            font-size: 20px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
 
-        .carousel-prev-btn {
-            left: 10px;
+        .nav-button:hover {
+            background: var(--secondary-brown);
         }
 
-        .carousel-next-btn {
-            right: 10px;
-        }
-
-        .carousel-dots {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+        .legend {
             display: flex;
-            gap: 10px;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            justify-content: center;
+            font-size: 0.8rem;
         }
 
-        .carousel-dot {
-            width: 10px;
-            height: 10px;
-            background: rgba(255,255,255,0.5);
-            border-radius: 50%;
-            cursor: pointer;
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
         }
 
-        .carousel-dot.active {
-            background: var(--accent-gold);
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
         }
 
+        /* Responsive Breakpoints */
         @media (max-width: 768px) {
-            .carousel-container {
-                height: 50vh;
-                max-height: 400px;
-            }
-
-            .carousel-nav-btn {
-                padding: 5px;
-                font-size: 16px;
-            }
-
-            .carousel-dots {
-                bottom: 10px;
+            .calendar-container {
+                width: 80%; /* Slightly wider on tablets */
             }
         }
 
         @media (max-width: 480px) {
-            .carousel-container {
-                height: 40vh;
-                max-height: 300px;
+            .calendar-container {
+                width: 95%; /* Almost full width on mobile */
+                min-width: unset;
             }
 
-            .carousel-nav-btn {
-                padding: 3px;
-                font-size: 14px;
+            .book-content {
+                padding: 1rem;
+            }
+
+            .calendar-day {
+                font-size: 0.8rem;
+                padding: 0.15rem;
+            }
+
+            .day-marker {
+                font-size: 0.5rem;
+            }
+
+            .nav-button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .legend {
+                font-size: 0.7rem;
+            }
+        }
+
+        /* Landscape Mode */
+        @media (orientation: landscape) and (max-height: 600px) {
+            .calendar-container {
+                height: 90vh;
+                width: auto;
+                aspect-ratio: 4/3;
+            }
+        }
+
+        /* Large Screens */
+        @media (min-width: 1200px) {
+            .calendar-container {
+                max-width: 600px; /* Cap the maximum width */
+            }
+
+            .calendar-day {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
-
+<!-- Rest of the HTML and JavaScript code remains the same -->
 <body>
- <header class="header">
-    <nav class="nav-container">
-        <div class="logo">
-            <img src="./logo_sample4.webp" alt="Peetikapur Vihar Logo" class="logo-image">
-            <span>Peetikapur Vihar</span>
-        </div>
-        <div class="nav-menu">
-            <a href="./index.html" class="nav-link">Home</a>
-            <a href="./temples.html" class="nav-link">Temples</a>
-            <a href="./services.html" class="nav-link">Services</a>
-            <a href="./events.html" class="nav-link">Events</a>
-            <a href="./contact.html" class="nav-link">Contact</a>
-        </div>
-        <button class="hamburger" aria-label="Open menu">
-            <i class="fas fa-bars"></i>
-        </button>
-    </nav>
-</header>
-    <div class="mobile-nav">
-        <button class="close-menu" aria-label="Close menu">
-            <i class="fas fa-times"></i>
-        </button>
-        <div class="mobile-nav-links">
-           <a href="./index.html" class="nav-link">Home</a>
-                <a href="./temples.html" class="nav-link">Temples</a>
-                <a href="./services.html" class="nav-link">Services</a>
-                <a href="./events.html" class="nav-link">Events</a>
-                <a href="./contact.html" class="nav-link">Contact</a>
+    <!-- Rest of the HTML remains the same -->
+    <div class="calendar-container">
+        <div class="calendar-book" id="calendarBook">
+            <div class="book-cover">
+                <h1 style="font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: clamp(1rem, 3vw, 2rem);">
+                    <i class="fas fa-calendar-alt"></i> Telugu Calendar
+                </h1>
+                <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: clamp(1.5rem, 4vw, 3rem);">2025</h2>
+                <p style="font-size: clamp(1rem, 2vw, 1.5rem); color: var(--accent-gold);">
+                    Click to View Calendar
+                </p>
+                <div style="margin-top: clamp(1.5rem, 4vw, 3rem); font-size: clamp(0.9rem, 2vw, 1.2rem);">
+                    <p>Peetikapur Vihar</p>
+                    <p>Traditional Telugu Panchangam</p>
+                </div>
+            </div>
 
-        </div>
-    </div>
-    <section class="hero-section">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">Connect with Peetikapur Vihar</h1>
-            <p class="hero-subtitle">Discover spiritual journeys, book services, and explore ancient temples</p>
-            
-        </div>
-    </section>
+            <div class="book-content">
+                <div class="navigation">
+                    <button class="nav-button" id="prevMonth">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <h2 id="currentMonth"></h2>
+                    <button class="nav-button" id="nextMonth">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
 
-    <main class="main-content">
-<section style="margin-top:2%;margin-bottom: 2%;">
-    <h2 class="section-title">Highlights</h2>
-    <div class="carousel-container">
-        <div class="carousel-slides" id="carouselSlides">
-            <div class="carousel-slide">
-                <img src="./logo.jpg" alt="Temple Exterior">
-            </div>
-            <div class="carousel-slide">
-                <img src="./logo_pkv.png" alt="Temple Interior">
-            </div>
-            <div class="carousel-slide">
-                <img src="./logo_sample2.webp" alt="Temple Landscape">
-            </div>
-        </div>
+                <div class="month-card">
+                    <div id="calendarGrid" class="calendar-grid">
+                        <!-- Calendar will be populated by JavaScript -->
+                    </div>
+                </div>
 
-        <button class="carousel-nav-btn carousel-prev-btn" onclick="changeSlide(-1)">&#10094;</button>
-        <button class="carousel-nav-btn carousel-next-btn" onclick="changeSlide(1)">&#10095;</button>
-
-        <div class="carousel-dots" id="carouselDots"></div>
-    </div>
-</section>
-
-
-
-        <section>
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card" onclick="window.location.href='./onlinebook.html';" style="cursor:pointer;">
-                    <i class="fas fa-book-reader service-icon"></i>
-                    <h3>Online Booking</h3>
-                    <p>Book darshans and sevas with ease</p>
-                </div>
-                <div class="service-card" onclick="window.location.href='./onlinebook.html';" style="cursor:pointer;">
-                    <i class="fas fa-hotel service-icon"></i>
-                    <h3>Accommodation</h3>
-                    <p>Find comfortable stays near temples</p>
-                </div>
-                <div class="service-card" onclick="window.location.href='./onlinebook.html';" style="cursor:pointer;">
-                    <i class="fas fa-video service-icon"></i>
-                    <h3>Live Streaming</h3>
-                    <p>Watch live temple ceremonies</p>
-                </div>
-                <div class="service-card" onclick="window.location.href='./onlinebook.html';" style="cursor:pointer;">
-                    <i class="fas fa-hands-helping service-icon"></i>
-                    <h3>Donations</h3>
-                    <p>Support temple initiatives</p>
-                </div>
-            </div>
-        </section>
-<section>
-    <h2 class="section-title">Latest Events</h2>
-
- <div class="events-carousel-container">
-        <!-- Add navigation buttons -->
-        <button class="nav-btn prev-btn" aria-label="Previous">&lt;</button>
-        <button class="nav-btn next-btn" aria-label="Next">&gt;</button>
-   
-        <div class="events-carousel">
-            <!-- First set of cards -->
-            <div class="temple-card">
-                <img src="/api/placeholder/400/300" alt="Datt Jayanti Yatra" class="temple-image">
-                <div class="temple-info">
-                    <h3 class="temple-name">Pithapur Kuravpur Yatra</h3>
-                    <p class="temple-location">December 9, 2024</p>
-                    <p>Special Datt Jayanti celebration with rituals and processions</p>
-                    <button class="cta-button">View Details</button>
-                </div>
-            </div>
-            <div class="temple-card">
-                <img src="/api/placeholder/400/300" alt="Navaratri Celebrations" class="temple-image">
-                <div class="temple-info">
-                    <h3 class="temple-name">Navaratri Ustavalu</h3>
-                    <p class="temple-location">September 2024</p>
-                    <p>Celebrations at Shri Puruhutika Devi Ammavari Temple</p>
-                    <button class="cta-button">View Details</button>
-                </div>
-            </div>
-            <div class="temple-card">
-                <img src="/api/placeholder/400/300" alt="Special Poojas" class="temple-image">
-                <div class="temple-info">
-                    <h3 class="temple-name">Special Poojas</h3>
-                    <p class="temple-location">Year-round Events</p>
-                    <p>At Sripada Srivallabha Mahasamsthanam</p>
-                    <button class="cta-button">View Details</button>
-                </div>
-            </div>
-            <div class="temple-card">
-                <img src="/api/placeholder/400/300" alt="Brahmotsavam" class="temple-image">
-                <div class="temple-info">
-                    <h3 class="temple-name">Brahmotsavam Celebrations</h3>
-                    <p class="temple-location">January 15-16, 2024</p>
-                    <p>Annual celebration with special rituals and cultural programs</p>
-                    <button class="cta-button">View Details</button>
-                </div>
-            </div>
-            <div class="temple-card">
-                <img src="/api/placeholder/400/300" alt="Guru Purnima" class="temple-image">
-                <div class="temple-info">
-                    <h3 class="temple-name">Guru Purnima</h3>
-                    <p class="temple-location">July 2024</p>
-                    <p>Special prayers and ceremonies honoring spiritual masters</p>
-                    <button class="cta-button">View Details</button>
-                </div>
-            </div>
-            <!-- Duplicate cards for infinite scroll -->
-            <div class="temple-card">
-                <img src="/api/placeholder/400/300" alt="Datt Jayanti Yatra" class="temple-image">
-                <div class="temple-info">
-                    <h3 class="temple-name">Pithapur Kuravpur Yatra</h3>
-                    <p class="temple-location">December 9, 2024</p>
-                    <p>Special Datt Jayanti celebration with rituals and processions</p>
-                    <button class="cta-button">View Details</button>
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: var(--festival-highlight);"></div>
+                        <span>Festivals</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: var(--amavasya-color);"></div>
+                        <span>Amavasya</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: var(--pournami-color);"></div>
+                        <span>Pournami</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: var(--ekadasi-color);"></div>
+                        <span>Ekadasi</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
-    </main>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Temple Directory</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Services</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Online Booking</a></li>
-                    <li><a href="#">Virtual Tours</a></li>
-                    <li><a href="#">Live Streaming</a></li>
-                    <li><a href="#">Donations</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <ul class="footer-links">
-                    <li>Email: info@divineconnect.com</li>
-                    <li>Phone: +91 XXX XXX XXXX</li>
-                    <li>Address: Divine Connect, Temple Street</li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-
-
-
     <script>
-        const hamburger = document.querySelector('.hamburger');
-        const mobileNav = document.querySelector('.mobile-nav');
-        const closeMenu = document.querySelector('.close-menu');
+         // JavaScript code remains the same
+         const teluguMonths = {
+            1: { name: "Pushyam", days: 31, startDay: 1 },
+            2: { name: "Magham", days: 28, startDay: 4 },
+            3: { name: "Phalgunam", days: 31, startDay: 4 },
+            4: { name: "Chaithram", days: 30, startDay: 0 },
+            5: { name: "Vaisakham", days: 31, startDay: 2 },
+            6: { name: "Jyeshtam", days: 30, startDay: 5 },
+            7: { name: "Aashadam", days: 31, startDay: 0 },
+            8: { name: "Sravanam", days: 31, startDay: 3 },
+            9: { name: "Bhadrapadam", days: 30, startDay: 6 },
+            10: { name: "Aswayujam", days: 31, startDay: 1 },
+            11: { name: "Karthikam", days: 30, startDay: 4 },
+            12: { name: "Margasiram", days: 31, startDay: 6 }
+        };
 
-        hamburger.addEventListener('click', () => {
-            mobileNav.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+        const festivals2025 = {
+            "1-14": { name: "Bhogi", description: "First day of Sankranti" },
+            "1-15": { name: "Makara Sankranti", description: "Main festival day" },
+            "1-26": { name: "Ratha Saptami", description: "Worship of Surya Bhagavan" },
+            "2-2": { name: "Sri Pada Sri Vallabha Jayanti", description: "Special celebrations" },
+            "3-15": { name: "Holi", description: "Festival of colors" },
+            "4-11": { name: "Ugadi", description: "Telugu New Year" },
+            "4-21": { name: "Sri Rama Navami", description: "Birth of Lord Rama" },
+            "8-19": { name: "Sri Krishna Janmashtami", description: "Birth of Lord Krishna" },
+            "9-2": { name: "Vinayaka Chavithi", description: "Ganesh Chaturthi" },
+            "10-12": { name: "Vijaya Dasami", description: "Dussehra final day" },
+            "11-12": { name: "Deepavali", description: "Festival of lights" }
+        };
+    
+        const amavasya2025 = [
+            "1-21", "2-20", "3-21", "4-20", "5-19", "6-17",
+            "7-17", "8-15", "9-14", "10-13", "11-12", "12-11"
+        ];
+    
+        const pournami2025 = [
+            "1-7", "2-5", "3-7", "4-5", "5-5", "6-3",
+            "7-3", "8-1", "8-31", "9-29", "10-29", "11-27", "12-27"
+        ];
+    
+        const ekadasi2025 = [
+            "1-3", "1-17", "2-1", "2-16", "3-3", "3-17",
+            "4-1", "4-16", "5-1", "5-15", "5-31", "6-14",
+            "7-1", "7-15", "7-30", "8-14", "8-29", "9-12",
+            "9-28", "10-12", "10-27", "11-10", "11-26", "12-10", "12-25"
+        ];
+    
+        let currentMonth = 1;
+    
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCalendar();
+            setupEventListeners();
         });
-
-        closeMenu.addEventListener('click', () => {
-            mobileNav.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scrolling
-        });
-
-        // Close menu when clicking a link
-        const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNav.classList.remove('active');
-                document.body.style.overflow = '';
+    
+        function setupEventListeners() {
+            // Navigation buttons
+            document.getElementById('prevMonth').addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent calendar flip
+                if (currentMonth > 1) {
+                    currentMonth--;
+                    renderCalendar();
+                    updateNavigationButtons();
+                }
             });
-        });
-
-document.addEventListener('DOMContentLoaded', function() {
-    const carousel = document.querySelector('.events-carousel');
     
-    // Clone cards for seamless infinite scroll
-    function duplicateCards() {
-        const cards = carousel.querySelectorAll('.temple-card');
-        cards.forEach(card => {
-            const clone = card.cloneNode(true);
-            carousel.appendChild(clone);
-        });
-    }
+            document.getElementById('nextMonth').addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent calendar flip
+                if (currentMonth < 12) {
+                    currentMonth++;
+                    renderCalendar();
+                    updateNavigationButtons();
+                }
+            });
     
-    // Check if carousel needs more duplicates
-    function checkCarousel() {
-        const carouselWidth = carousel.scrollWidth;
-        const windowWidth = window.innerWidth;
-        
-        if (carouselWidth < windowWidth * 3) {
-            duplicateCards();
-        }
-    }
+            // Calendar flip
+            document.querySelector('.calendar-container').addEventListener('click', function(e) {
+                if (!e.target.closest('.nav-button') && !e.target.closest('.festival-tooltip')) {
+                    document.getElementById('calendarBook').classList.toggle('open');
+                }
+            });
     
-    // Initial setup
-    checkCarousel();
-    
-    // Recheck on window resize
-    window.addEventListener('resize', checkCarousel);
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const carousel = document.querySelector('.events-carousel');
-    const container = document.querySelector('.events-carousel-container');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    
-    let isDragging = false;
-    let startPosition = 0;
-    let currentTranslate = 0;
-    let previousTranslate = 0;
-    let animationID = 0;
-    let currentIndex = 0;
-
-    // Touch events
-    container.addEventListener('touchstart', touchStart);
-    container.addEventListener('touchmove', touchMove);
-    container.addEventListener('touchend', touchEnd);
-
-    // Mouse events
-    container.addEventListener('mousedown', touchStart);
-    container.addEventListener('mousemove', touchMove);
-    container.addEventListener('mouseup', touchEnd);
-    container.addEventListener('mouseleave', touchEnd);
-
-    // Prevent context menu
-    window.oncontextmenu = function(event) {
-        if (event.target.closest('.events-carousel-container')) {
-            event.preventDefault();
-            event.stopPropagation();
-            return false;
-        }
-    }
-
-    function touchStart(event) {
-        isDragging = true;
-        startPosition = getPositionX(event);
-        carousel.classList.add('dragging');
-        
-        // Stop the animation temporarily
-        carousel.style.animation = 'none';
-        
-        animationID = requestAnimationFrame(animation);
-        carousel.style.cursor = 'grabbing';
-    }
-
-    function touchMove(event) {
-        if (!isDragging) return;
-        
-        const currentPosition = getPositionX(event);
-        const diff = currentPosition - startPosition;
-        currentTranslate = previousTranslate + diff;
-        
-        // Limit the scroll range
-        const maxScroll = -(carousel.offsetWidth - container.offsetWidth);
-        currentTranslate = Math.max(maxScroll, Math.min(0, currentTranslate));
-    }
-
-    function touchEnd() {
-        isDragging = false;
-        cancelAnimationFrame(animationID);
-        
-        // Calculate momentum
-        const diff = currentTranslate - previousTranslate;
-        if (Math.abs(diff) > 100) {
-            // Add momentum effect
-            currentTranslate += diff * 2;
-        }
-        
-        previousTranslate = currentTranslate;
-        carousel.classList.remove('dragging');
-        carousel.style.cursor = 'grab';
-        
-        // Restart the animation after a delay
-        setTimeout(() => {
-            carousel.style.animation = '';
-        }, 1000);
-    }
-
-    function animation() {
-        if (isDragging) {
-            setSliderPosition();
-            requestAnimationFrame(animation);
-        }
-    }
-
-    function getPositionX(event) {
-        return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
-    }
-
-    function setSliderPosition() {
-        carousel.style.transform = `translateX(${currentTranslate}px)`;
-    }
-
-    // Button controls
-    prevBtn.addEventListener('click', () => {
-        currentTranslate += 300; // Adjust based on card width
-        if (currentTranslate > 0) currentTranslate = 0;
-        carousel.style.transform = `translateX(${currentTranslate}px)`;
-        previousTranslate = currentTranslate;
-    });
-
-    nextBtn.addEventListener('click', () => {
-        currentTranslate -= 300; // Adjust based on card width
-        const maxScroll = -(carousel.offsetWidth - container.offsetWidth);
-        if (currentTranslate < maxScroll) currentTranslate = maxScroll;
-        carousel.style.transform = `translateX(${currentTranslate}px)`;
-        previousTranslate = currentTranslate;
-    });
-
-    // Clone cards for seamless infinite scroll
-    function duplicateCards() {
-        const cards = carousel.querySelectorAll('.temple-card');
-        cards.forEach(card => {
-            const clone = card.cloneNode(true);
-            carousel.appendChild(clone);
-        });
-    }
-
-    // Initial setup
-    duplicateCards();
-});
-const slides = document.querySelectorAll('.carousel-slide');
-        const slidesContainer = document.getElementById('carouselSlides');
-        const dotsContainer = document.getElementById('carouselDots');
-        let currentSlide = 0;
-
-        // Create dot indicators
-        slides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('carousel-dot');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(index));
-            dotsContainer.appendChild(dot);
-        });
-
-        const dots = document.querySelectorAll('.carousel-dot');
-
-        function changeSlide(direction) {
-            currentSlide += direction;
-            if (currentSlide >= slides.length) currentSlide = 0;
-            if (currentSlide < 0) currentSlide = slides.length - 1;
-            updateCarousel();
-        }
-
-        function goToSlide(index) {
-            currentSlide = index;
-            updateCarousel();
-        }
-
-        function updateCarousel() {
-            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-
-            // Update active dot
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft' && currentMonth > 1) {
+                    currentMonth--;
+                    renderCalendar();
+                    updateNavigationButtons();
+                } else if (e.key === 'ArrowRight' && currentMonth < 12) {
+                    currentMonth++;
+                    renderCalendar();
+                    updateNavigationButtons();
+                }
             });
         }
-
-        // Auto-rotate every 45 seconds
-        setInterval(() => {
-            changeSlide(1);
-        }, 30000);
+    
+        function updateNavigationButtons() {
+            document.getElementById('prevMonth').disabled = currentMonth === 1;
+            document.getElementById('nextMonth').disabled = currentMonth === 12;
+        }
+    
+        function renderCalendar() {
+            const monthData = teluguMonths[currentMonth];
+            document.getElementById('currentMonth').textContent = 
+                `${monthData.name} (${getEnglishMonth(currentMonth)} 2025)`;
+    
+            const calendarGrid = document.getElementById('calendarGrid');
+            calendarGrid.innerHTML = '';
+    
+            // Add day headers
+            const days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+            days.forEach(day => {
+                calendarGrid.innerHTML += `
+                    <div class="calendar-day day-header">${day}</div>
+                `;
+            });
+    
+            // Add empty cells for days before start of month
+            for (let i = 0; i < monthData.startDay; i++) {
+                calendarGrid.innerHTML += `<div class="calendar-day"></div>`;
+            }
+    
+            // Add days of the month
+            for (let day = 1; day <= monthData.days; day++) {
+                const dateKey = `${currentMonth}-${day}`;
+                const classes = ['calendar-day'];
+                const markers = [];
+    
+                // Check for special days
+                if (festivals2025[dateKey]) classes.push('festival');
+                if (amavasya2025.includes(dateKey)) {
+                    classes.push('amavasya');
+                    markers.push('Amavasya');
+                }
+                if (pournami2025.includes(dateKey)) {
+                    classes.push('pournami');
+                    markers.push('Pournami');
+                }
+                if (ekadasi2025.includes(dateKey)) {
+                    classes.push('ekadasi');
+                    markers.push('Ekadasi');
+                }
+    
+                const festival = festivals2025[dateKey];
+                const markerHtml = markers.length > 0 ? 
+                    `<div class="day-marker">${markers[0]}</div>` : '';
+                
+                calendarGrid.innerHTML += `
+                    <div class="${classes.join(' ')}">
+                        <span>${day}</span>
+                        ${markerHtml}
+                        ${festival ? `
+                            <div class="festival-tooltip">
+                                <strong>${festival.name}</strong><br>
+                                ${festival.description}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }
+    
+            // Fill remaining grid cells
+            const totalCells = 42; // 6 rows × 7 days
+            const filledCells = monthData.startDay + monthData.days;
+            for (let i = filledCells; i < totalCells; i++) {
+                calendarGrid.innerHTML += `<div class="calendar-day"></div>`;
+            }
+    
+            updateNavigationButtons();
+        }
+    
+        function getEnglishMonth(teluguMonthNum) {
+            const months = [
+                'January', 'February', 'March', 'April',
+                'May', 'June', 'July', 'August',
+                'September', 'October', 'November', 'December'
+            ];
+            return months[teluguMonthNum - 1];
+        }
+    
+        // Add swipe support for mobile devices
+        let touchStartX = 0;
+        let touchEndX = 0;
+    
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+    
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+    
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchEndX - touchStartX;
+    
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0 && currentMonth > 1) {
+                    // Swipe right - previous month
+                    currentMonth--;
+                    renderCalendar();
+                } else if (diff < 0 && currentMonth < 12) {
+                    // Swipe left - next month
+                    currentMonth++;
+                    renderCalendar();
+                }
+            }
+        }
     </script>
-</body>
-
-</html>
+    </body>
+    </html>
