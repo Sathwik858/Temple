@@ -1260,6 +1260,401 @@
             }
         }
     </style>
+      <style>
+        :root {
+            --primary-brown: #8B4513;
+            --secondary-brown: #A0522D;
+            --light-brown: #DEB887;
+            --accent-gold: #DAA520;
+            --bg-cream: #FFF8DC;
+            --text-dark: #2C1810;
+            --festival-highlight: #FFE4B5;
+            --amavasya-color: #E6E6FA;
+            --pournami-color: #FFD700;
+            --ekadasi-color: #98FB98;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(to right, var(--primary-brown), var(--secondary-brown));
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Events Section */
+        .events-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--accent-gold);
+            transition: transform 0.3s ease;
+        }
+
+        /* Calendar Container */
+        .calendar-container {
+            width: 90%;
+            max-width: 500px;
+            margin: 2rem auto;
+            height: auto;
+            perspective: 2000px;
+        }
+
+        .calendar-book {
+            width: 100%;
+            height: 600px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .calendar-book.open {
+            transform: rotateY(-180deg);
+        }
+
+        .book-cover, .book-content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .book-cover {
+            background: linear-gradient(145deg, var(--primary-brown), var(--secondary-brown));
+            color: white;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .book-content {
+            background: white;
+            transform: rotateY(180deg);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Calendar Grid */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 2px;
+            flex: 1;
+            margin: 1rem 0;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            padding: 0.25rem;
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Navigation */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+
+        .nav-button {
+            background: var(--primary-brown);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: clamp(0.8rem, 1.5vw, 1rem);
+        }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            justify-content: center;
+            font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .calendar-container {
+                width: 95%;
+            }
+            
+            .calendar-book {
+                height: 500px;
+            }
+
+            .book-content {
+                padding: 1rem;
+            }
+
+            .calendar-day {
+                font-size: 0.7rem;
+            }
+
+            .nav-button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calendar-book {
+                height: 400px;
+            }
+
+            .calendar-day {
+                padding: 0.15rem;
+                font-size: 0.65rem;
+            }
+
+            .legend {
+                font-size: 0.65rem;
+                gap: 0.25rem;
+            }
+        }
+
+        /* Special Day Styles */
+        .festival { background: var(--festival-highlight); }
+        .amavasya { background: var(--amavasya-color); }
+        .pournami { background: var(--pournami-color); }
+        .ekadasi { background: var(--ekadasi-color); }
+
+        .day-marker {
+            font-size: 0.6em;
+            margin-top: 2px;
+            color: #666;
+        }
+
+          /* Updated Calendar Container Styles */
+          .calendar-container {
+            width: 90%;
+            max-width: 500px;
+            margin: 2rem auto;
+            /* Set aspect ratio for container */
+            aspect-ratio: 3/4;
+            perspective: 2000px;
+        }
+
+        .calendar-book {
+            width: 100%;
+            height: 100%; /* Fill container height */
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .book-cover, .book-content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .book-cover {
+            background: linear-gradient(145deg, var(--primary-brown), var(--secondary-brown));
+            color: white;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 0.5rem;
+        }
+
+        .book-content {
+            background: white;
+            transform: rotateY(180deg);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigation takes minimum space needed */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            min-height: 40px;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Calendar Grid uses remaining space */
+        .calendar-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-template-rows: repeat(7, 1fr);
+            gap: 1px;
+            margin: 0.5rem 0;
+        }
+
+        .calendar-day {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(0.6rem, 1.5vw, 0.9rem);
+            border: 1px solid #eee;
+            padding: 2px;
+            position: relative;
+        }
+
+        /* Day headers */
+        .day-header {
+            font-weight: bold;
+            background: var(--light-brown);
+        }
+
+        /* Legend takes minimum space needed */
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+            padding: 0.25rem;
+            justify-content: center;
+            font-size: clamp(0.6rem, 1.2vw, 0.8rem);
+            min-height: 30px;
+            margin-top: 0.5rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .nav-button {
+            padding: 0.25rem 0.5rem;
+            font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+        }
+
+        .day-marker {
+            font-size: clamp(0.45rem, 1vw, 0.6rem);
+            margin-top: 1px;
+        }
+
+        /* Festival tooltip */
+        .festival-tooltip {
+            position: absolute;
+            background: white;
+            padding: 0.25rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 100;
+            width: 150px;
+            display: none;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 100%;
+            font-size: clamp(0.6rem, 1.2vw, 0.8rem);
+        }
+
+        /* Book cover content scaling */
+        .book-cover h1 {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .book-cover h2 {
+            font-size: clamp(1rem, 2.5vw, 1.8rem);
+            margin-bottom: 1rem;
+        }
+
+        .book-cover p {
+            font-size: clamp(0.8rem, 2vw, 1.2rem);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .calendar-container {
+                width: 95%;
+                aspect-ratio: 2.5/4;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calendar-container {
+                aspect-ratio: 2/3;
+            }
+
+            .book-content {
+                padding: 0.5rem;
+            }
+
+            .navigation {
+                min-height: 35px;
+            }
+
+            .legend {
+                min-height: 25px;
+            }
+        }
+
+        /* Special day styles remain the same */
+        .festival { background: var(--festival-highlight); }
+        .amavasya { background: var(--amavasya-color); }
+        .pournami { background: var(--pournami-color); }
+        .ekadasi { background: var(--ekadasi-color); }
+    </style>
 </head>
 <body>
     <header class="header">
