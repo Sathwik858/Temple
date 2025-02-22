@@ -191,14 +191,17 @@
         }
 
         .cta-button {
-            background-color: var(--primary-brown);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+    background-color: var(--primary-brown);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: center; /* Ensures the button stays centered */
+    margin-left:30%;
+}
+
 
         .cta-button:hover {
             background-color: var(--secondary-brown);
@@ -930,6 +933,7 @@ border-radius:9999px;
 
 .temple-info {
     padding: 20px;
+
 }
 
 .slider-nav {
@@ -1041,13 +1045,31 @@ border-radius:9999px;
     <div class="carousel-container">
         <div class="carousel-slides" id="carouselSlides">
             <div class="carousel-slide">
-                <img src="./logo.jpg" alt="Temple Exterior">
+                <img src="./high6.jpeg" alt="Temple Exterior">
             </div>
             <div class="carousel-slide">
-                <img src="./logo_pkv.png" alt="Temple Interior">
+                <img src="./high3.jpeg" alt="Temple Interior">
             </div>
             <div class="carousel-slide">
-                <img src="./logo_sample2.webp" alt="Temple Landscape">
+                <img src="./high2.jpeg" alt="Temple Landscape">
+            </div>
+            <div class="carousel-slide">
+                <img src="./high4.jpeg" alt="Temple Exterior">
+            </div>
+            <div class="carousel-slide">
+                <img src="./high5.jpeg" alt="Temple Interior">
+            </div>
+            <div class="carousel-slide">
+                <img src="./high1.jpeg" alt="Temple Landscape">
+            </div>
+            <div class="carousel-slide">
+                <img src="./high7.jpeg" alt="Temple Exterior">
+            </div>
+            <div class="carousel-slide">
+                <img src="./high8.jpeg" alt="Temple Interior">
+            </div>
+            <div class="carousel-slide">
+                <img src="./high9.jpeg" alt="Temple Landscape">
             </div>
         </div>
 
@@ -1148,11 +1170,11 @@ border-radius:9999px;
                     </div>
                 </div>
                 <div class="slider-nav">
-                    <button class="nav-btn prev-btn" aria-label="Previous slide">
+                    <button class="nav-btn prev-btn" aria-label="Previous slide" style="display:none;">
                         <i class="fas fa-chevron-left"></i>
                     </button>
                     <div class="slider-dots"></div>
-                    <button class="nav-btn next-btn" aria-label="Next slide">
+                    <button class="nav-btn next-btn" aria-label="Next slide" style="display:none;">
                         <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>

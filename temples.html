@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,8 +33,8 @@
         .header {
             background: linear-gradient(to right, var(--primary-brown), var(--secondary-brown));
             color: white;
-   
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         .nav-container {
@@ -94,7 +95,7 @@
             border-radius: 8px;
             padding: 2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .section-heading {
@@ -124,25 +125,25 @@
             margin-bottom: 1rem;
         }
 
-      .section-content {
+        .section-content {
             margin-bottom: 2rem;
         }
-        
+
         .section-content p {
             margin-bottom: 1rem;
         }
-        
+
         .feature-list {
             list-style: none;
             margin: 1rem 0;
         }
-        
+
         .feature-list li {
             margin-bottom: 1rem;
             padding-left: 1.5rem;
             position: relative;
         }
-        
+
         .feature-list li:before {
             content: "•";
             color: var(--accent-gold);
@@ -202,7 +203,7 @@
 
         .timing-item {
             padding: 1rem;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 4px;
         }
 
@@ -227,11 +228,11 @@
             .temple-title {
                 font-size: 2rem;
             }
-            
+
             .section {
                 padding: 1.5rem;
             }
-            
+
             .temple-content {
                 padding: 0 1rem;
             }
@@ -263,7 +264,7 @@
             background: linear-gradient(to right, var(--primary-brown), var(--secondary-brown));
             color: white;
 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         .nav-container {
@@ -294,7 +295,7 @@
         }
 
         .nav-link:hover {
-            background-color: rgba(255,255,255,0.1);
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
         .hero-section {
@@ -353,7 +354,7 @@
             border-radius: 8px;
             padding: 2rem;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
         }
 
@@ -398,7 +399,7 @@
             background: white;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .temple-image {
@@ -473,16 +474,23 @@
         .footer-links a:hover {
             color: var(--accent-gold);
         }
-.hero-section {
-    position: relative;
-    width: 100%;
-    height: 100vh; /* Adjust height as needed */
-    background-image: url('./img/logo.jpg'); /* Path to your image */
-    background-size: 80% 100%; /* Ensures the image covers the entire section */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-}
-       .nav-menu {
+
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            /* Adjust height as needed */
+            background-image: url('./img/logo.jpg');
+            /* Path to your image */
+            background-size: 80% 100%;
+            /* Ensures the image covers the entire section */
+            background-position: center;
+            /* Centers the image */
+            background-repeat: no-repeat;
+            /* Prevents the image from repeating */
+        }
+
+        .nav-menu {
             display: flex;
             gap: 2rem;
         }
@@ -540,7 +548,7 @@
             text-decoration: none;
             font-size: 1.2rem;
             padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         @media (max-width: 768px) {
@@ -552,6 +560,7 @@
                 display: block;
             }
         }
+
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -565,124 +574,128 @@
                 font-size: 1.2rem;
             }
         }
+
         /* Updated Logo and Navigation Styles */
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0.5rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-right: auto; /* Pushes the nav menu to the right */
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-right: auto;
+            /* Pushes the nav menu to the right */
+        }
 
-.logo-image {
-    height: 50px;
-    width: auto;
-    border-radius: 9999px;
-}
+        .logo-image {
+            height: 50px;
+            width: auto;
+            border-radius: 9999px;
+        }
 
-.logo span {
-    color: var(--accent-gold);
-    font-size: 1.4rem;
-    font-weight: bold;
-    white-space: nowrap;
-}
+        .logo span {
+            color: var(--accent-gold);
+            font-size: 1.4rem;
+            font-weight: bold;
+            white-space: nowrap;
+        }
 
-.nav-menu {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    margin-left: auto; /* Ensures the menu stays on the right */
-}
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            margin-left: auto;
+            /* Ensures the menu stays on the right */
+        }
 
-.nav-link {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-    white-space: nowrap;
-}
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+        }
 
-/* Responsive adjustments */
-@media (max-width: 968px) {
-    .nav-link {
-        padding: 0.5rem;
-        font-size: 0.9rem;
-    }
-    
-    .nav-menu {
-        gap: 1rem;
-    }
-    
-    .logo span {
-        font-size: 1.2rem;
-    }
-    
-    .logo-image {
-        height: 40px;
-    }
-}
+        /* Responsive adjustments */
+        @media (max-width: 968px) {
+            .nav-link {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
 
-@media (max-width: 768px) {
-    .nav-menu {
-        display: none;
-    }
-    
-    .hamburger {
-        display: block;
-        margin-left: 1rem;
-    }
-    
-    .logo-image {
-        height: 35px;
-    }
-    
-    .logo span {
-        font-size: 1.1rem;
-    }
-}
+            .nav-menu {
+                gap: 1rem;
+            }
 
-/* Mobile Navigation Updates */
-.mobile-nav {
-    padding: 1rem;
-}
+            .logo span {
+                font-size: 1.2rem;
+            }
 
-.mobile-nav-links {
-    margin-top: 4rem;
-    text-align: center;
-}
+            .logo-image {
+                height: 40px;
+            }
+        }
 
-.mobile-nav-links a {
-    display: block;
-    padding: 1rem;
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
 
-.mobile-nav-links a:last-child {
-    border-bottom: none;
-}
+            .hamburger {
+                display: block;
+                margin-left: 1rem;
+            }
 
-/* Ensure header stays on top */
-.header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: linear-gradient(to right, var(--primary-brown), var(--secondary-brown));
-}
+            .logo-image {
+                height: 35px;
+            }
+
+            .logo span {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Mobile Navigation Updates */
+        .mobile-nav {
+            padding: 1rem;
+        }
+
+        .mobile-nav-links {
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .mobile-nav-links a {
+            display: block;
+            padding: 1rem;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-nav-links a:last-child {
+            border-bottom: none;
+        }
+
+        /* Ensure header stays on top */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(to right, var(--primary-brown), var(--secondary-brown));
+        }
     </style>
 </head>
+
 <body>
     <header class="header">
         <nav class="nav-container">
@@ -702,174 +715,197 @@
             </button>
         </nav>
     </header>
-<div class="mobile-nav">
+    <div class="mobile-nav">
         <button class="close-menu" aria-label="Close menu">
             <i class="fas fa-times"></i>
         </button>
         <div class="mobile-nav-links">
             <a href="./index.html" class="nav-link">Home</a>
-                <a href="./temples.html" class="nav-link">Temples</a>
-                <a href="./services.html" class="nav-link">Services</a>
-                <a href="./events.html" class="nav-link">Events</a>
-                <a href="./contact.html" class="nav-link">Contact</a>
+            <a href="./temples.html" class="nav-link">Temples</a>
+            <a href="./services.html" class="nav-link">Services</a>
+            <a href="./events.html" class="nav-link">Events</a>
+            <a href="./contact.html" class="nav-link">Contact</a>
 
         </div>
     </div>
-<main class="temple-content">
-    <div class="temple-hero">
-        <div class="temple-hero-overlay">
-            <div class="temple-hero-text">
-                <h1 class="temple-title">Sacred Temples of Pithapuram</h1>
-<p class="temple-subtitle">A Divine Journey Through the Spiritual Heart of South India</p>
+    <main class="temple-content">
+        <div class="temple-hero">
+            <div class="temple-hero-overlay">
+                <div class="temple-hero-text">
+                    <h1 class="temple-title">Sacred Temples of Pithapuram</h1>
+                    <p class="temple-subtitle">A Divine Journey Through the Spiritual Heart of South India</p>
 
-            </div>
-        </div>
-    </div>
-
-<section class="temple-content">
-    <div class="section" style="margin-top: 3rem;">
-        <h2 class="section-heading">Sacred Temples of Pithapuram</h2>
-        <div class="mythological-card">
-            <h3><i class="fas fa-gopuram"></i> Dakshina Kasi</h3>
-            <p>Pithapuram, revered as the Southern Varanasi, stands as a testament to India's rich spiritual heritage. These sacred temples form the spiritual backbone of this divine town, each carrying its unique significance and divine grace.</p>
-        </div>
-
-        <div class="featured-temples" style="margin-top: 2rem;">
-            <!-- Kukkuteswara Temple Card -->
-            <div class="temple-card">
-                <div style="height: 200px; background: var(--primary-brown); display: flex; align-items: center; justify-content: center;">
-                    <img src="./kukkuteswara.jpg" alt="Peetikapur Vihar Logo" style=" background-position: center;width:100%;height:100%;">
-                </div>
-                <div class="temple-info">
-                    <h3 class="temple-name" style="font-size:17px;">Kukkuteswara Swamy Temple</h3>
-                    <p class="temple-location"><i class="fas fa-map-marker-alt"></i> Central Pithapuram</p>
-                    <ul class="feature-list" style="margin: 1rem 0;">
-                        <li>Ancient Shiva temple with rich history</li>
-                        <li>Houses the sacred Padagaya Sarovar</li>
-                        <li>Connected to Lord Vishnu's Matsya avatar</li>
-                    </ul>
-                    <a href="./kukkuteswara.html" class="cta-button" style="display: inline-block; text-decoration: none; margin-top: 1rem;">
-                        Explore More <i class="fas fa-arrow-right"></i>
-                    </a>
                 </div>
             </div>
-            <!-- Puruhutika Temple Card -->
+        </div>
+
+        <section class="temple-content">
+            <div class="section" style="margin-top: 3rem;">
+                <h2 class="section-heading">Sacred Temples of Pithapuram</h2>
+                <div class="mythological-card">
+                    <h3><i class="fas fa-gopuram"></i> Dakshina Kasi</h3>
+                    <p>Pithapuram, revered as the Southern Varanasi, stands as a testament to India's rich spiritual
+                        heritage. These sacred temples form the spiritual backbone of this divine town, each carrying
+                        its unique significance and divine grace.</p>
+                </div>
+
+                <div class="featured-temples" style="margin-top: 2rem;">
+                    <!-- Kukkuteswara Temple Card -->
+                    <div class="temple-card">
+                        <div
+                            style="height: 200px; background: var(--primary-brown); display: flex; align-items: center; justify-content: center;">
+                            <img src="./kukkuteswara_swamy.jpeg" alt="Peetikapur Vihar Logo"
+                                style=" background-position: center;width:100%;height:100%;">
+                        </div>
+                        <div class="temple-info">
+                            <h3 class="temple-name" style="font-size:17px;">Kukkuteswara Swamy Temple</h3>
+                            <p class="temple-location"><i class="fas fa-map-marker-alt"></i> Central Pithapuram</p>
+                            <ul class="feature-list" style="margin: 1rem 0;">
+                                <li>Ancient Shiva temple with rich history</li>
+                                <li>Houses the sacred Padagaya Sarovar</li>
+                                <li>Connected to Lord Vishnu's Matsya avatar</li>
+                            </ul>
+                            <a href="./kukkuteswara.html" class="cta-button"
+                                style="display: inline-block; text-decoration: none; margin-top: 1rem;">
+                                Explore More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Puruhutika Temple Card -->
+                    <div class="temple-card">
+                        <div
+                            style="height: 200px; background: var(--primary-brown); display: flex; align-items: center; justify-content: center;">
+                            <img src="./purhuthika.png" alt="Sri Puruhutika Temple"
+                                style="background-position: center; width: 100%; height: 100%;">
+                        </div>
+                        <div class="temple-info">
+                            <h3 class="temple-name" style="font-size: 17px;">Sri Puruhutika Shaktipeeth</h3>
+                            <p class="temple-location"><i class="fas fa-map-marker-alt"></i> Central Pithapuram </p>
+                            <ul class="feature-list" style="margin: 1rem 0;">
+                                <li>One of the 18 sacred Shaktipeethas in India</li>
+                                <li>Dedicated to Goddess Puruhutika, a manifestation of Goddess Parvati</li>
+                                <li>Known for its serene Padagaya Tirtham (sacred tank)</li>
+                            </ul>
+                            <a href="./kukkuteswara.html" class="cta-button"
+                                style="display: inline-block; text-decoration: none; margin-top: 1rem;">
+                                Explore More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Swayambu Datta Kshethram Card -->
+                    <!-- <div class="temple-card">
+                        <div
+                            style="height: 200px; background: var(--primary-brown); display: flex; align-items: center; justify-content: center;">
+                            <img src="./dhathhathreya.jpg" alt="Swayambu Datta Kshethram"
+                                style="background-position: center; width: 100%; height: 100%;">
+                        </div>
+                        <div class="temple-info">
+                            <h3 class="temple-name" style="font-size: 17px;">Swayambu Datta Kshethram</h3>
+                            <p class="temple-location"><i class="fas fa-map-marker-alt"></i> Pithapuram, Andhra Pradesh
+                            </p>
+                            <ul class="feature-list" style="margin: 1rem 0;">
+                                <li>Ancient temple dedicated to Lord Dattatreya</li>
+                                <li>Known for the self-manifested (Swayambu) idol of Lord Datta</li>
+                                <li>A revered destination for spiritual seekers and devotees</li>
+
+                            </ul>
+                            <a href="./dattakshetram.html" class="cta-button"
+                                style="display: inline-block; text-decoration: none; margin-top: 1rem;">
+                                Explore More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div> -->
+<!-- Kunti Madhava Temple Card -->
 <div class="temple-card">
     <div style="height: 200px; background: var(--primary-brown); display: flex; align-items: center; justify-content: center;">
-        <img src="./purhuthika.png" alt="Sri Puruhutika Temple" style="background-position: center; width: 100%; height: 100%;">
+        <img src="./kunti_mahadev.jpeg" alt="Peetikapur Vihar Logo" style=" background-position: center;width:100%;height:100%;">
     </div>
     <div class="temple-info">
-        <h3 class="temple-name" style="font-size: 17px;">Sri Puruhutika Shaktipeeth</h3>
-        <p class="temple-location"><i class="fas fa-map-marker-alt"></i> Central Pithapuram </p>
+        <h3 class="temple-name">Kunti Madhava Swamy Temple</h3>
+        <p class="temple-location"><i class="fas fa-map-marker-alt"></i> East Pithapuram</p>
         <ul class="feature-list" style="margin: 1rem 0;">
-            <li>One of the 18 sacred Shaktipeethas in India</li>
-            <li>Dedicated to Goddess Puruhutika, a manifestation of Goddess Parvati</li>
-            <li>Known for its serene Padagaya Tirtham (sacred tank)</li>
+            <li>Ancient Vishnu temple with Mahabharata connection</li>
+            <li>Established by Kunti Devi</li>
+            <li>Blend of devotion and history</li>
         </ul>
-        <a href="./kukkuteswara.html" class="cta-button" style="display: inline-block; text-decoration: none; margin-top: 1rem;">
-            Explore More <i class="fas fa-arrow-right"></i>
-        </a>
-    </div>
-</div>
-<!-- Swayambu Datta Kshethram Card -->
-<div class="temple-card">
-    <div style="height: 200px; background: var(--primary-brown); display: flex; align-items: center; justify-content: center;">
-        <img src="./dhathhathreya.jpg" alt="Swayambu Datta Kshethram" style="background-position: center; width: 100%; height: 100%;">
-    </div>
-    <div class="temple-info">
-        <h3 class="temple-name" style="font-size: 17px;">Swayambu Datta Kshethram</h3>
-        <p class="temple-location"><i class="fas fa-map-marker-alt"></i> Pithapuram, Andhra Pradesh</p>
-        <ul class="feature-list" style="margin: 1rem 0;">
-            <li>Ancient temple dedicated to Lord Dattatreya</li>
-            <li>Known for the self-manifested (Swayambu) idol of Lord Datta</li>
-            <li>A revered destination for spiritual seekers and devotees</li>
-          
-        </ul>
-        <a href="./dattakshetram.html" class="cta-button" style="display: inline-block; text-decoration: none; margin-top: 1rem;">
+        <a href="./kuntumadhav.html" class="cta-button" style="display: inline-block; text-decoration: none; margin-top: 1rem;">
             Explore More <i class="fas fa-arrow-right"></i>
         </a>
     </div>
 </div>
 
+                    <!-- Sri Pada Sri Vallabha Temple Card -->
+                    <div class="temple-card">
+                        <div
+                            style="height: 200px; background: var(--primary-brown); display: flex; align-items: center; justify-content: center;">
+                            <img src="./sripadhavallabha.jpg" alt="Peetikapur Vihar Logo"
+                                style=" background-position: center;width:100%;height:100%;">
+                        </div>
+                        <div class="temple-info">
+                            <h3 class="temple-name">Sri Pada Sri Vallabha Temple</h3>
+                            <p class="temple-location"><i class="fas fa-map-marker-alt"></i> North Pithapuram</p>
+                            <ul class="feature-list" style="margin: 1rem 0;">
+                                <li>Dedicated to first avatar of Lord Dattatreya</li>
+                                <li>Center for spiritual enlightenment</li>
+                                <li>Known for serene meditation atmosphere</li>
+                            </ul>
+                            <a href="./sripadhavallabha.html" class="cta-button"
+                                style="display: inline-block; text-decoration: none; margin-top: 1rem;">
+                                Explore More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
 
-            <!-- Sri Pada Sri Vallabha Temple Card -->
-            <div class="temple-card">
-                <div style="height: 200px; background: var(--primary-brown); display: flex; align-items: center; justify-content: center;">
-                    <img src="./sripadhavallabha.jpg" alt="Peetikapur Vihar Logo" style=" background-position: center;width:100%;height:100%;">
-                </div>
-                <div class="temple-info">
-                    <h3 class="temple-name">Sri Pada Sri Vallabha Temple</h3>
-                    <p class="temple-location"><i class="fas fa-map-marker-alt"></i> North Pithapuram</p>
-                    <ul class="feature-list" style="margin: 1rem 0;">
-                        <li>Dedicated to first avatar of Lord Dattatreya</li>
-                        <li>Center for spiritual enlightenment</li>
-                        <li>Known for serene meditation atmosphere</li>
-                    </ul>
-                    <a href="./sripadhavallabha.html" class="cta-button" style="display: inline-block; text-decoration: none; margin-top: 1rem;">
-                        Explore More <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
+                    
+                    <!-- Swamy Samartha Mandir Card -->
+                    <div class="temple-card">
+                        <div
+                            style="height: 200px; background: var(--primary-brown); display: flex; align-items: center; justify-content: center;">
+                            <img src="./swamy_samartha.jpeg" alt="Swamy Samartha Mandir"
+                                style="background-position: center; width: 100%; height: 100%;">
+                        </div>
+                        <div class="temple-info">
+                            <h3 class="temple-name">Swamy Samartha Mandir</h3>
+                            <p class="temple-location"><i class="fas fa-map-marker-alt"></i> Pithapuram, Andhra Pradesh
+                            </p>
+                            <ul class="feature-list" style="margin: 1rem 0;">
+                                <li>Temple dedicated to Sri Swamy Samartha Maharaj</li>
+                                <li>Spiritual center known for divine blessings and miracles</li>
+                                <li>A serene place for meditation and devotion</li>
+                                <li>Attracts devotees seeking peace and guidance</li>
+                            </ul>
+                            <a href="./swamy-samartha.html" class="cta-button"
+                                style="display: inline-block; text-decoration: none; margin-top: 1rem;">
+                                Explore More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
 
-            <!-- Kunti Madhava Temple Card -->
-            <!-- <div class="temple-card">
-                <div style="height: 200px; background: var(--primary-brown); display: flex; align-items: center; justify-content: center;">
-                    <img src="./kuntimadhav.jpg" alt="Peetikapur Vihar Logo" style=" background-position: center;width:100%;height:100%;">
+                    <!-- Gopal Baba Maharaj Ashram Card -->
+                    <div class="temple-card">
+                        <div
+                            style="height: 200px; background: var(--primary-brown); display: flex; align-items: center; justify-content: center;">
+                            <img src="./srigopalbaba.jpg" alt="Peetikapur Vihar Logo"
+                                style=" background-position: center;width:100%;height:100%;">
+                        </div>
+                        <div class="temple-info">
+                            <h3 class="temple-name">Sri Gopal Baba Maharaj Ashram</h3>
+                            <p class="temple-location"><i class="fas fa-map-marker-alt"></i> Bypass Road, Pithapuram</p>
+                            <ul class="feature-list" style="margin: 1rem 0;">
+                                <li>Modern spiritual center with divine connection</li>
+                                <li>Center for meditation and spiritual discourse</li>
+                                <li>Active community service programs</li>
+                            </ul>
+                            <a href="./gopalbaba.html" class="cta-button"
+                                style="display: inline-block; text-decoration: none; margin-top: 1rem;">
+                                Explore More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="temple-info">
-                    <h3 class="temple-name">Kunti Madhava Swamy Temple</h3>
-                    <p class="temple-location"><i class="fas fa-map-marker-alt"></i> East Pithapuram</p>
-                    <ul class="feature-list" style="margin: 1rem 0;">
-                        <li>Ancient Vishnu temple with Mahabharata connection</li>
-                        <li>Established by Kunti Devi</li>
-                        <li>Blend of devotion and history</li>
-                    </ul>
-                    <a href="./kuntumadhav.html" class="cta-button" style="display: inline-block; text-decoration: none; margin-top: 1rem;">
-                        Explore More <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div> -->
-<!-- Swamy Samartha Mandir Card -->
-<div class="temple-card">
-    <div style="height: 200px; background: var(--primary-brown); display: flex; align-items: center; justify-content: center;">
-        <img src="./swamysamrthamandhir.jpg" alt="Swamy Samartha Mandir" style="background-position: center; width: 100%; height: 100%;">
-    </div>
-    <div class="temple-info">
-        <h3 class="temple-name">Swamy Samartha Mandir</h3>
-        <p class="temple-location"><i class="fas fa-map-marker-alt"></i> Pithapuram, Andhra Pradesh</p>
-        <ul class="feature-list" style="margin: 1rem 0;">
-            <li>Temple dedicated to Sri Swamy Samartha Maharaj</li>
-            <li>Spiritual center known for divine blessings and miracles</li>
-            <li>A serene place for meditation and devotion</li>
-            <li>Attracts devotees seeking peace and guidance</li></ul>
-        <a href="./swamy-samartha.html" class="cta-button" style="display: inline-block; text-decoration: none; margin-top: 1rem;">
-            Explore More <i class="fas fa-arrow-right"></i>
-        </a>
-    </div>
-</div>
 
-            <!-- Gopal Baba Maharaj Ashram Card -->
-            <div class="temple-card">
-                <div style="height: 200px; background: var(--primary-brown); display: flex; align-items: center; justify-content: center;">
-                    <img src="./srigopalbaba.jpg" alt="Peetikapur Vihar Logo" style=" background-position: center;width:100%;height:100%;">
-                </div>
-                <div class="temple-info">
-                    <h3 class="temple-name">Sri Gopal Baba Maharaj Ashram</h3>
-                    <p class="temple-location"><i class="fas fa-map-marker-alt"></i> Bypass Road, Pithapuram</p>
-                    <ul class="feature-list" style="margin: 1rem 0;">
-                        <li>Modern spiritual center with divine connection</li>
-                        <li>Center for meditation and spiritual discourse</li>
-                        <li>Active community service programs</li>
-                    </ul>
-                    <a href="./gopalbaba.html" class="cta-button" style="display: inline-block; text-decoration: none; margin-top: 1rem;">
-                        Explore More <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Additional Sacred Sites Section -->
-        <!-- <div class="section" style="margin-top: 3rem; background: var(--bg-cream);">
+                <!-- Additional Sacred Sites Section -->
+                <!-- <div class="section" style="margin-top: 3rem; background: var(--bg-cream);">
             <h3 class="section-heading">Other Sacred Sites</h3>
             <div class="info-grid">
                 <div class="info-card">
@@ -889,9 +925,9 @@
                 </div>
             </div>
         </div> -->
-    </div>
-</section>
-</main>
+            </div>
+        </section>
+    </main>
     <footer class="footer">
         <div class="nav-container">
             <p>© 2024 Kukkuteswara Swamy Temple. All rights reserved.</p>
@@ -899,8 +935,8 @@
     </footer>
 
 
-<script>
- const hamburger = document.querySelector('.hamburger');
+    <script>
+        const hamburger = document.querySelector('.hamburger');
         const mobileNav = document.querySelector('.mobile-nav');
         const closeMenu = document.querySelector('.close-menu');
 
@@ -922,7 +958,8 @@
                 document.body.style.overflow = '';
             });
         });
-</script>
+    </script>
 
 </body>
+
 </html>
