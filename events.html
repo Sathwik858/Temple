@@ -1693,13 +1693,25 @@
             <h2 class="section-heading">Latest Events</h2>
             <div class="events-grid">
                 <div class="event-card">
-                    <div class="event-date">January 26, 2025</div>
+                    <div class="event-date">February 10, 2025</div>
+                    <div class="telugu-date">Magham Pournami</div>
+                    <h3 class="event-title">Bhishma Ekadasi</h3>
+                    <p>Special prayers and Satyanarayana Swamy vratham at Kunti Madhava Swamy Temple.</p>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">February 4, 2025</div>
                     <div class="telugu-date">Pushyam Pournami</div>
                     <h3 class="event-title">Ratha Saptami</h3>
                     <p>Special abhishekam and celebrations at Kukkuteswara Swamy Temple marking the worship of Surya Bhagavan.</p>
                 </div>
                 <div class="event-card">
-                    <div class="event-date">January 28, 2025</div>
+                    <div class="event-date">February 2, 2025</div>
+                    <div class="telugu-date">Magham Shukla Paksha</div>
+                    <h3 class="event-title">Sri Pada Sri Vallabha Jayanti</h3>
+                    <p>Grand celebrations with special pujas, homam, and annadanam at Sri Pada Sri Vallabha Temple.</p>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">January 26, 2025</div>
                     <div class="telugu-date">Pushyam Krishna Paksha</div>
                     <h3 class="event-title">Masa Sivaratri</h3>
                     <p>Night-long prayers and special abhishekam at Kukkuteswara Swamy Temple with Rudra parayanam.</p>
@@ -1710,18 +1722,27 @@
         <section class="section">
             <h2 class="section-heading">Upcoming Events</h2>
             <div class="events-grid">
+               
                 <div class="event-card">
-                    <div class="event-date">February 2, 2025</div>
-                    <div class="telugu-date">Magham Shukla Paksha</div>
-                    <h3 class="event-title">Sri Pada Sri Vallabha Jayanti</h3>
-                    <p>Grand celebrations with special pujas, homam, and annadanam at Sri Pada Sri Vallabha Temple.</p>
+                    <div class="event-date">February 26, 2025</div>
+                    <div class="telugu-date">Magham Krishna Chaturdashi</div>
+                    <h3 class="event-title">Maha Shivaratri</h3>
+                    <p>Night-long celebrations with Abhishekam, Rudrabhishekam, bhajans, and special pujas at Shiva temples.</p>
                 </div>
                 <div class="event-card">
-                    <div class="event-date">February 10, 2025</div>
-                    <div class="telugu-date">Magham Pournami</div>
-                    <h3 class="event-title">Bhishma Ekadasi</h3>
-                    <p>Special prayers and Satyanarayana Swamy vratham at Kunti Madhava Swamy Temple.</p>
+                    <div class="event-date">March 14, 2025</div>
+                    <div class="telugu-date">Phalguna Purnima</div>
+                    <h3 class="event-title">Holi</h3>
+                    <p>Celebrate the Festival of Colors with vibrant gatherings, music, dance, and the traditional throwing of colored powders.</p>
                 </div>
+                <div class="event-card">
+                    <div class="event-date">March 30, 2025</div>
+                    <div class="telugu-date">Chaitra Shukla Pratipada</div>
+                    <h3 class="event-title">Ugadi (Telugu New Year)</h3>
+                    <p>Festive celebrations with Panchanga Sravanam, special pujas, and traditional Ugadi Pachadi at temples and homes.</p>
+                </div>
+              
+                
             </div>
         </section>
    
@@ -1743,13 +1764,13 @@
 
             <div class="book-content">
                 <div class="navigation">
-                    <button class="nav-button" id="prevMonth">
+                    <!-- <button class="nav-button" id="prevMonth">
                         <i class="fas fa-chevron-left"></i> Previous
-                    </button>
+                    </button> -->
                     <h2 id="currentMonth"></h2>
-                    <button class="nav-button" id="nextMonth">
+                    <!-- <button class="nav-button" id="nextMonth">
                         Next <i class="fas fa-chevron-right"></i>
-                    </button>
+                    </button> -->
                 </div>
 
                 <div class="month-card">
@@ -1757,8 +1778,9 @@
                         <!-- Calendar will be populated by JavaScript -->
                     </div>
                 </div>
-
+                
                 <div class="legend">
+                   
                     <div class="legend-item">
                         <div class="legend-color" style="background: var(--festival-highlight);"></div>
                         <span>Festivals</span>
@@ -1775,6 +1797,15 @@
                         <div class="legend-color" style="background: var(--ekadasi-color);"></div>
                         <span>Ekadasi</span>
                     </div>
+                    
+                </div>
+                <div class="navigation">
+                <button class="nav-button" id="prevMonth">
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <button class="nav-button" id="nextMonth">
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
                 </div>
             </div>
         </div>
@@ -1824,7 +1855,7 @@
        6: { name: "Jyeshtam", days: 30, startDay: 5 },
        7: { name: "Aashadam", days: 31, startDay: 0 },
        8: { name: "Sravanam", days: 31, startDay: 3 },
-       9: { name: "Bhadrapadam", days: 30, startDay: 6 },
+       9: { name: "Badrapadam", days: 30, startDay: 6 },
        10: { name: "Aswayujam", days: 31, startDay: 1 },
        11: { name: "Karthikam", days: 30, startDay: 4 },
        12: { name: "Margasiram", days: 31, startDay: 6 }
@@ -1835,7 +1866,10 @@
        "1-15": { name: "Makara Sankranti", description: "Main festival day" },
        "1-26": { name: "Ratha Saptami", description: "Worship of Surya Bhagavan" },
        "2-2": { name: "Sri Pada Sri Vallabha Jayanti", description: "Special celebrations" },
-       "3-15": { name: "Holi", description: "Festival of colors" },
+       "2-26": { "name": "Maha Shivaratri", "description": "Night-long pujas, Rudrabhishekam, and bhajans at Shiva temples" },
+    "3-14": { "name": "Holi", "description": "Festival of Colors with music, dance, and traditional celebrations" },
+    "3-30": { "name": "Ugadi (Telugu New Year)", "description": "Panchanga Sravanam, special pujas, and festive meals" },
+       
        "4-11": { name: "Ugadi", description: "Telugu New Year" },
        "4-21": { name: "Sri Rama Navami", description: "Birth of Lord Rama" },
        "8-19": { name: "Sri Krishna Janmashtami", description: "Birth of Lord Krishna" },
@@ -1917,7 +1951,7 @@
    function renderCalendar() {
        const monthData = teluguMonths[currentMonth];
        document.getElementById('currentMonth').textContent = 
-           `${monthData.name} (${getEnglishMonth(currentMonth)} 2025)`;
+           `${monthData.name} (${getEnglishMonth(currentMonth)} )`;
 
        const calendarGrid = document.getElementById('calendarGrid');
        calendarGrid.innerHTML = '';
