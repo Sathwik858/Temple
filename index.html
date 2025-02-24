@@ -980,7 +980,20 @@ border-radius:9999px;
     background: var(--primary-brown);
     transform: scale(1.2);
 }
+.carousel-slide video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #000; /* Dark background for video */
+}
 
+/* Ensure videos don't overflow */
+.carousel-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.8);
+}
 @media (max-width: 768px) {
     .temple-card {
         max-width: 100%;
@@ -995,6 +1008,29 @@ border-radius:9999px;
         height: 35px;
     }
 }
+.video-container {
+    position: relative;
+    width: 95%; /* Adjust as needed */
+    height: 95%; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.video-rotate {
+    transform: rotate(-90deg);
+    transform-origin: center;
+    width: 100vh; /* Swap width & height due to rotation */
+    height: 100vw;
+}
+
+.video-rotate video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video fills the rotated container */
+}
+
     </style>
 </head>
 
@@ -1040,6 +1076,47 @@ border-radius:9999px;
     </section>
 
     <main class="main-content">
+        <section style="margin-top:2%;margin-bottom: 2%;">
+            <h2 class="section-title">Sacred Moments</h2>
+            <div class="carousel-container">
+                <div class="carousel-slides" id="videoCarouselSlides">
+                    <div class="carousel-slide">
+                        <video width="100%" height="100%" controls>
+                            <source src="vid3.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="carousel-slide">
+                        <video width="100%" height="100%" controls>
+                            <source src="vid5.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="carousel-slide ">
+                        <div class="video-container">
+                            <div class="video-rotate">
+                                <video width="100%" height="100%" controls>
+                                    <source src="vid6.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="carousel-slide">
+                        <video width="100%" height="100%" controls>
+                            <source src="vid4.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+        
+                <button class="carousel-nav-btn carousel-prev-btn" onclick="changeVideoSlide(-1)">&#10094;</button>
+                <button class="carousel-nav-btn carousel-next-btn" onclick="changeVideoSlide(1)">&#10095;</button>
+        
+                <div class="carousel-dots" id="videoCarouselDots"></div>
+            </div>
+        </section>
 <section style="margin-top:2%;margin-bottom: 2%;">
     <h2 class="section-title">Highlights</h2>
     <div class="carousel-container">
@@ -1095,12 +1172,12 @@ border-radius:9999px;
                     <h3>Accommodation</h3>
                     <p>Find comfortable stays near temples</p>
                 </div>
-                <div class="service-card" onclick="window.location.href='./onlinebook.html';" style="cursor:pointer;">
+                <div class="service-card" onclick="window.location.href='./livestream.html';" style="cursor:pointer;">
                     <i class="fas fa-video service-icon"></i>
                     <h3>Live Streaming</h3>
                     <p>Watch live temple ceremonies</p>
                 </div>
-                <div class="service-card" onclick="window.location.href='./onlinebook.html';" style="cursor:pointer;">
+                <div class="service-card" onclick="window.location.href='./donation.html';" style="cursor:pointer;">
                     <i class="fas fa-hands-helping service-icon"></i>
                     <h3>Donations</h3>
                     <p>Support temple initiatives</p>
@@ -1534,6 +1611,81 @@ const slides = document.querySelectorAll('.carousel-slide');
 // Initialize slider when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     const slider = new Slider();
+});
+
+
+const videoSlides = document.querySelectorAll('#videoCarouselSlides .carousel-slide');
+const videoSlidesContainer = document.getElementById('videoCarouselSlides');
+const videoDotsContainer = document.getElementById('videoCarouselDots');
+let currentVideoSlide = 0;
+let videos = document.querySelectorAll('#videoCarouselSlides video');
+
+// Create dot indicators for videos
+videoSlides.forEach((_, index) => {
+    const dot = document.createElement('div');
+    dot.classList.add('carousel-dot');
+    if (index === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goToVideoSlide(index));
+    videoDotsContainer.appendChild(dot);
+});
+
+const videoDots = document.querySelectorAll('#videoCarouselDots .carousel-dot');
+
+function changeVideoSlide(direction) {
+    // Pause current video
+    videos[currentVideoSlide].pause();
+    
+    currentVideoSlide += direction;
+    if (currentVideoSlide >= videoSlides.length) currentVideoSlide = 0;
+    if (currentVideoSlide < 0) currentVideoSlide = videoSlides.length - 1;
+    updateVideoCarousel();
+    
+    // Play new video
+    videos[currentVideoSlide].play();
+}
+
+function goToVideoSlide(index) {
+    // Pause current video
+    videos[currentVideoSlide].pause();
+    
+    currentVideoSlide = index;
+    updateVideoCarousel();
+    
+    // Play new video
+    videos[currentVideoSlide].play();
+}
+
+function updateVideoCarousel() {
+    videoSlidesContainer.style.transform = `translateX(-${currentVideoSlide * 100}%)`;
+
+    // Update active dot
+    videoDots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentVideoSlide);
+    });
+}
+
+// Auto-advance when video ends
+videos.forEach((video, index) => {
+    video.addEventListener('ended', () => {
+        changeVideoSlide(1);
+    });
+});
+
+// Pause all videos except the current one when switching
+function pauseOtherVideos(currentIndex) {
+    videos.forEach((video, index) => {
+        if (index !== currentIndex) {
+            video.pause();
+        }
+    });
+}
+
+// Add this event listener to handle initial video loading
+document.addEventListener('DOMContentLoaded', () => {
+    // Start with the first video
+    if (videos.length > 0) {
+        videos[0].play();
+    }
 });
     </script>
 </body>

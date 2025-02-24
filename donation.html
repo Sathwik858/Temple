@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kukkuteswara Swamy Temple - Divine Heritage</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-brown: #8B4513;
+            --secondary-brown: #A0522D;
+            --light-brown: #DEB887;
+            --accent-gold: #DAA520;
+            --bg-cream: #FFF8DC;
+            --text-dark: #2C1810;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header styles remain the same */
+        .header {
+            background: linear-gradient(to right, var(--primary-brown), var(--secondary-brown));
+            color: white;
+     
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .temple-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .temple-hero {
+            background: url('/api/placeholder/1200/400') center/cover;
+            height: 400px;
+            position: relative;
+            margin-bottom: 3rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .temple-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 24, 16, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .temple-hero-text {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .temple-title {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .temple-subtitle {
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .section-heading {
+            color: var(--primary-brown);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: var(--bg-cream);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .info-card h3 {
+            color: var(--primary-brown);
+            margin-bottom: 1rem;
+        }
+
+      .section-content {
+            margin-bottom: 2rem;
+        }
+        
+        .section-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .feature-list li:before {
+            content: "•";
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .mythological-card {
+            background: linear-gradient(to right bottom, var(--primary-brown), var(--secondary-brown));
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .mythological-card h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .architecture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .ritual-card {
+            background: var(--bg-cream);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--primary-brown);
+        }
+
+        .timing-card {
+            background: var(--primary-brown);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .timing-card h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .timing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .timing-item {
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+
+        .footer {
+            background: var(--primary-brown);
+            color: white;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .list-styled {
+            list-style-position: inside;
+            margin: 1rem 0;
+            padding-left: 1rem;
+        }
+
+        .list-styled li {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .temple-title {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+            
+            .temple-content {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+    <style>
+        :root {
+            --primary-brown: #8B4513;
+            --secondary-brown: #A0522D;
+            --light-brown: #DEB887;
+            --accent-gold: #DAA520;
+            --bg-cream: #FFF8DC;
+            --text-dark: #2C1810;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+        }
+
+        .header {
+            background: linear-gradient(to right, var(--primary-brown), var(--secondary-brown));
+            color: white;
+
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .hero-section {
+            background: url('/api/placeholder/1920/600') center/cover;
+            height: 500px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 24, 16, 0.7);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-brown);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-brown);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent-gold);
+        }
+
+        .featured-temples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .temple-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .temple-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .temple-info {
+            padding: 1.5rem;
+        }
+
+        .temple-name {
+            font-size: 1.25rem;
+            color: var(--primary-brown);
+            margin-bottom: 0.5rem;
+        }
+
+        .temple-location {
+            color: var(--secondary-brown);
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            background-color: var(--primary-brown);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary-brown);
+        }
+
+        .footer {
+            background: var(--primary-brown);
+            color: white;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Adjust height as needed */
+    background-image: url('./img/logo.jpg'); /* Path to your image */
+    background-size: 80% 100%; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+       .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        /* Add these new styles for hamburger menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        .hamburger i {
+            font-size: 1.5rem;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-brown);
+            z-index: 1000;
+            padding: 2rem;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .mobile-nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+        /* Updated Logo and Navigation Styles */
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-right: auto; /* Pushes the nav menu to the right */
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+    border-radius: 9999px;
+}
+
+.logo span {
+    color: var(--accent-gold);
+    font-size: 1.4rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-left: auto; /* Ensures the menu stays on the right */
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 968px) {
+    .nav-link {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .nav-menu {
+        gap: 1rem;
+    }
+    
+    .logo span {
+        font-size: 1.2rem;
+    }
+    
+    .logo-image {
+        height: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .hamburger {
+        display: block;
+        margin-left: 1rem;
+    }
+    
+    .logo-image {
+        height: 35px;
+    }
+    
+    .logo span {
+        font-size: 1.1rem;
+    }
+}
+
+/* Mobile Navigation Updates */
+.mobile-nav {
+    padding: 1rem;
+}
+
+.mobile-nav-links {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.mobile-nav-links a {
+    display: block;
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-links a:last-child {
+    border-bottom: none;
+}
+
+/* Ensure header stays on top */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(to right, var(--primary-brown), var(--secondary-brown));
+}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <img src="./logo_sample4.webp" alt="Peetikapur Vihar Logo" class="logo-image">
+                <span>Peetikapur Vihar</span>
+            </div>
+            <div class="nav-menu">
+                <a href="./index.html" class="nav-link">Home</a>
+                <a href="./temples.html" class="nav-link">Temples</a>
+                <a href="./services.html" class="nav-link">Services</a>
+                <a href="./events.html" class="nav-link">Events</a>
+                <a href="./contact.html" class="nav-link">Contact</a>
+            </div>
+            <button class="hamburger" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+<div class="mobile-nav">
+        <button class="close-menu" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="mobile-nav-links">
+            <a href="./index.html" class="nav-link">Home</a>
+                <a href="./temples.html" class="nav-link">Temples</a>
+                <a href="./services.html" class="nav-link">Services</a>
+                <a href="./events.html" class="nav-link">Events</a>
+                <a href="./contact.html" class="nav-link">Contact</a>
+
+        </div>
+    </div>
+
+<main class="temple-content">
+    <section class="section">
+        <h2 class="section-heading">Support Our Divine Heritage</h2>
+        <div class="mythological-card">
+            <h3>Welcome to Pithapuram - The Southern Varanasi</h3>
+            <p>Pithapuram, located in the East Godavari district of Andhra Pradesh, is revered as the Southern Varanasi due to its rich spiritual heritage. Your generous donations help sustain our temples' spiritual, cultural, and community services.</p>
+        </div>
+    </section>
+    <section class="section">
+        <h2 class="section-heading">How to Donate</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3><i class="fas fa-university"></i> Online Transfer</h3>
+                <p><strong>Sripada Srivallabha Mahasamsthanam</strong></p>
+                <ul class="feature-list">
+                    <li>Account Number: 11003309388</li>
+                    <li>IFSC Code: SBIN0001003</li>
+                    <li>Branch: SBI, Pithapuram</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3><i class="fas fa-credit-card"></i> Alternative Account</h3>
+                <p><strong>Sripada Srivallabha Sevasangh</strong></p>
+                <ul class="feature-list">
+                    <li>Account Number: 11003309399</li>
+                    <li>IFSC Code: SBIN0001003</li>
+                    <li>Branch: SBI, Pithapuram</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3><i class="fas fa-hand-holding-heart"></i> Other Methods</h3>
+                <ul class="feature-list">
+                    <li>Cheque/DD in favor of "The President, Sripada Srivallabha Seva Sangh"</li>
+                    <li>Credit Card Facility Available</li>
+                    <li>80G Tax Exemption Available</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Services Section -->
+    <section class="section">
+        <h2 class="section-heading">Community Services & Initiatives</h2>
+        <div class="info-grid">
+            <div class="ritual-card">
+                <h3><i class="fas fa-walking"></i> Free Temple Visit</h3>
+                <p>Experience the divine presence with a free visit to Temple and surroundings. Open for all devotees.</p>
+            </div>
+            
+            <div class="ritual-card">
+                <h3><i class="fas fa-utensils"></i> Annadanam Scheme</h3>
+                <p>Contribute to our daily food service program for visiting devotees.</p>
+            </div>
+            <div class="ritual-card">
+                <h3><i class="fas fa-cow"></i> Goseva Scheme</h3>
+                <p>Support our Goshala maintenance and daily milk Abhishekam.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sacred Temples Section -->
+    <section class="section">
+        <h2 class="section-heading">Our Sacred Temples</h2>
+        <div class="architecture-grid">
+            <div class="mythological-card">
+                <h3>Kukkuteswara Swamy Temple</h3>
+                <p>One of the 18 Shaktipeethas, featuring a swayambhu lingam in the form of a rooster.</p>
+            </div>
+            <div class="mythological-card">
+                <h3>Sri Puruhutika Temple</h3>
+                <p>A sacred Shaktipeetha dedicated to Goddess Puruhutika with the divine Padagaya Tirtham.</p>
+            </div>
+            <div class="mythological-card">
+                <h3>Kunti Madhava Swamy Temple</h3>
+                <p>An ancient Vishnu temple with historical connections to the Mahabharata.</p>
+            </div>
+            <div class="mythological-card">
+                <h3>Sri Pada Sri Vallabha Temple</h3>
+                <p>Dedicated to the first avatar of Lord Dattatreya, this temple is a center for spiritual enlightenment. Known for its serene meditation atmosphere, it attracts devotees seeking peace and guidance.</p>
+            </div>
+            <div class="mythological-card">
+                <h3>Swamy Samartha Mandir</h3>
+                <p>Dedicated to Sri Swamy Samartha Maharaj, this temple is a spiritual center known for divine blessings and miracles. A serene place for meditation and devotion, it attracts devotees from across the region.</p>
+            </div>
+            <div class="mythological-card">
+                <h3>Sri Gopal Baba Maharaj Ashram</h3>
+                <p>Located on Bypass Road, this modern spiritual center is a hub for meditation and spiritual discourse. The ashram runs active community service programs, contributing to the well-being of the local community.</p>
+            </div>
+        </div>
+    </section>
+
+
+</main>
+
+
+    <footer class="footer">
+        <div class="nav-container">
+            <p>© 2024 Kukkuteswara Swamy Temple. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+<script>
+ const hamburger = document.querySelector('.hamburger');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const closeMenu = document.querySelector('.close-menu');
+
+        hamburger.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        });
+
+        // Close menu when clicking a link
+        const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+</script>
+
+</body>
+</html>
